@@ -1,0 +1,111 @@
+
+.container-cima {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container-cima-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+#saiba-mais {
+  position: absolute;
+  bottom: 20px;
+}
+
+.container-site {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25%;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.container-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+#map {
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+  border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+  .container-site {
+    gap: 40px;
+  }
+
+  #map {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-cima {
+    min-height: 100svh;
+    padding: 20px 15px 60px;
+  }
+
+  .container-cima-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  #saiba-mais {
+    bottom: 15px;
+  }
+
+  .container-site {
+    flex-direction: column;
+    gap: 30px;
+    padding: 15px;
+  }
+
+  .container-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  #map {
+    height: 350px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-cima {
+    padding: 15px 10px 60px;
+  }
+
+  .container-cima-buttons {
+    gap: 10px;
+  }
+
+  .container-site {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  #map {
+    height: 280px;
+  }
+}

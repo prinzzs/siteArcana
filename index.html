@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcana | Pagina inicial</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="container-cima">
+    <h1 class="title">comece sua <span>jornada</span></h1>
+    <p class="subtitle">Explore o nosso site e crie o seu próprio rpg.</p>
+    
+    <div class="container-cima-buttons">
+        <a href="php/cadastro.php" class="button">Criar campanha</a>
+        <a href="" class="button">Ja tenho uma campanha</a>
+    </div>
+
+    <a id="saiba-mais" href="">saiba mais do nosso site</a>
+    </div>
+
+    <div class="container-site">
+        <div class="container-buttons">
+            <a href="">Jogue dados</a>
+        </div>
+        <div class="container-buttons">
+            <a href="">Ficha de entidades</a>
+        </div>
+        <div class="container-buttons">
+            <a href="">Veja o nosso sistema</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div id="map">
+     <script>
+        async function initMap() {
+
+            const { Map } =
+                await google.maps.importLibrary("maps");
+
+            const { AdvancedMarkerElement } =
+                await google.maps.importLibrary("marker");
+
+            const loc = {
+                lat: -24.005027857195923,
+                lng: -46.41220429945576
+            };
+                                         
+            const mapa = new Map(
+                document.getElementById("map"),
+                {
+                    center: loc,
+                    zoom: 14,
+                    mapId: "MAPA_EDU"
+                }
+            );
+
+            const marcador = new AdvancedMarkerElement({
+                map: mapa,
+                position: loc,
+                title: "FATEC PG"
+            });
+
+        }
+        window.initMap = initMap;
+
+     </script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC14_c1-S6pjUFwxg0Eu7iUGCzi6E08HLE&callback=initMap&loading=async&v=weekly">
+    </script>
+        </div>
+    </div>
+
+    
+</body>
+</html>
