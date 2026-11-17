@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #aaa;
+}
+
+.perfil {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.perfil a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.perfil img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+.perfil i {
+    display: none;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.campanhas-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+}
+
+.campanha-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.campanha-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 2px 5px 12px rgba(0,0,0,0.15);
+}
+
+.campanha-card h3 {
+    margin-top: 0;
+}
+
+.campanha-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.campanha-card a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .campanhas-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 15px 10px;
+        min-height: 65px;
+    }
+
+    nav ul {
+        gap: 5px;
+        margin-right: 45px;
+    }
+
+    nav ul li a {
+        padding: 5px;
+        font-size: 13px;
+    }
+
+    .perfil {
+        right: 10px;
+    }
+
+    .perfil img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .perfil i {
+        font-size: 35px;
+    }
+
+    .campanhas-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    nav ul {
+        gap: 0;
+    }
+
+    nav ul li a {
+        font-size: 11px;
+        padding: 4px;
+    }
+}

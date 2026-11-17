@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar campanha</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #222;
+            background: #fff;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: min(1200px, 92%);
+            margin: 35px auto;
+        }
+
+        /* Informações da campanha */
+
+        .campaign-header {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding-bottom: 25px;
+        }
+
+        .campaign-field {
+            display: grid;
+            gap: 6px;
+        }
+
+        .campaign-field label {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .campaign-field input,
+        .campaign-field textarea {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px 12px;
+            font: inherit;
+            font-size: 14px;
+            background: #fff;
+            color: #222;
+            outline: none;
+        }
+
+        .campaign-field input:focus,
+        .campaign-field textarea:focus {
+            border-color: #555;
+        }
+
+        .campaign-field textarea {
+            min-height: 75px;
+            resize: vertical;
+        }
+
+        .campaign-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .save-button {
+            padding: 8px 18px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            background: #fff;
+            color: #222;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .save-button:hover {
+            border-color: #222;
+        }
+
+        /* Navegação da campanha */
+
+        .campaign-nav {
+            display: flex;
+            gap: 5px;
+            overflow-x: auto;
+            border-bottom: 1px solid #ccc;
+            scrollbar-width: thin;
+        }
+
+        .nav-button {
+            flex-shrink: 0;
+            padding: 12px 14px;
+            border: none;
+            border-bottom: 2px solid transparent;
+            background: transparent;
+            color: #555;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nav-button:hover {
+            color: #111;
+        }
+
+        .nav-button.active {
+            color: #111;
+            border-bottom-color: #222;
+            font-weight: 600;
+        }
+
+        .nav-button:focus-visible,
+        .save-button:focus-visible {
+            outline: 2px solid #222;
+            outline-offset: 3px;
+        }
+
+        /* Conteúdo */
+
+        .content-area {
+            padding-top: 28px;
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        .page-content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .page-content p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 94%;
+                margin: 20px auto;
+            }
+
+            .campaign-nav {
+                gap: 0;
+            }
+
+            .nav-button {
+                padding: 11px 12px;
+            }
+
+            .campaign-actions {
+                justify-content: stretch;
+            }
+
+            .save-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="campaign-header" aria-label="Informações da campanha">
+
+            <div class="campaign-field">
+                <label for="campaign-name">Nome da campanha</label>
+                <input
+                    type="text"
+                    id="campaign-name"
+                    placeholder="Digite o nome da campanha"
+                >
+            </div>
+
+            <div class="campaign-field">
+                <label for="campaign-description">Descrição da campanha</label>
+                <textarea
+                    id="campaign-description"
+                    placeholder="Escreva uma descrição para sua campanha..."
+                ></textarea>
+            </div>
+
+            <div class="campaign-actions">
+                <button class="save-button" id="save-campaign">
+                    Salvar alterações
+                </button>
+            </div>
+
+        </section>
+
+        <nav class="campaign-nav" aria-label="Navegação da campanha">
+
+            <button class="nav-button active" data-page="overview" aria-current="page">
+                Visão geral da campanha
+            </button>
+
+            <button class="nav-button" data-page="players">
+                Jogadores e personagens
+            </button>
+
+            <button class="nav-button" data-page="agents">
+                Agentes
+            </button>
+
+            <button class="nav-button" data-page="combats">
+                Combates
+            </button>
+
+            <button class="nav-button" data-page="diary">
+                Diário de sessões
+            </button>
+
+            <button class="nav-button" data-page="missions">
+                Missões
+            </button>
+
+            <button class="nav-button" data-page="clues">
+                Banco de pistas
+            </button>
+
+            <button class="nav-button" data-page="notes">
+                Anotações do mestre
+            </button>
+
+            <button class="nav-button" data-page="npcs">
+                Galeria de NPCs
+            </button>
+
+            <button class="nav-button" data-page="inventory">
+                Inventário e recompensas
+            </button>
+
+        </nav>
+
+        <section class="content-area" aria-live="polite">
+
+            <section class="page-content active" id="overview">
+                <h2>Visão geral da campanha</h2>
+                <p>Informações gerais da campanha aparecerão aqui.</p>
+            </section>
+
+            <section class="page-content" id="players">
+                <h2>Jogadores e personagens</h2>
+                <p>Gerencie os jogadores e seus personagens.</p>
+            </section>
+
+            <section class="page-content" id="agents">
+                <h2>Agentes</h2>
+                <p>Gerencie os agentes da campanha.</p>
+            </section>
+
+            <section class="page-content" id="combats">
+                <h2>Combates</h2>
+                <p>Consulte e organize os combates.</p>
+            </section>
+
+            <section class="page-content" id="diary">
+                <h2>Diário de sessões</h2>
+                <p>Registre os acontecimentos das sessões.</p>
+            </section>
+
+            <section class="page-content" id="missions">
+                <h2>Missões</h2>
+                <p>Organize as missões da campanha.</p>
+            </section>
+
+            <section class="page-content" id="clues">
+                <h2>Banco de pistas</h2>
+                <p>Armazene e consulte pistas.</p>
+            </section>
+
+            <section class="page-content" id="notes">
+                <h2>Anotações do mestre</h2>
+                <p>Espaço para anotações particulares do mestre.</p>
+            </section>
+
+            <section class="page-content" id="npcs">
+                <h2>Galeria de NPCs</h2>
+                <p>Organize os NPCs da campanha.</p>
+            </section>
+
+            <section class="page-content" id="inventory">
+                <h2>Inventário e recompensas</h2>
+                <p>Gerencie itens e recompensas.</p>
+            </section>
+
+        </section>
+
+    </main>
+
+    <script>
+        const navButtons = document.querySelectorAll(".nav-button");
+        const pages = document.querySelectorAll(".page-content");
+
+        navButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const targetPage = button.dataset.page;
+
+                navButtons.forEach(item => {
+                    item.classList.remove("active");
+                    item.removeAttribute("aria-current");
+                });
+
+                pages.forEach(page => {
+                    page.classList.remove("active");
+                });
+
+                button.classList.add("active");
+                button.setAttribute("aria-current", "page");
+
+                document.getElementById(targetPage).classList.add("active");
+
+                button.scrollIntoView({
+                    behavior: "auto",
+                    block: "nearest",
+                    inline: "nearest"
+                });
+            });
+        });
+
+        const campaignName = document.getElementById("campaign-name");
+        const campaignDescription = document.getElementById("campaign-description");
+        const saveButton = document.getElementById("save-campaign");
+
+        campaignName.value = localStorage.getItem("campaignName") || "";
+        campaignDescription.value = localStorage.getItem("campaignDescription") || "";
+
+        saveButton.addEventListener("click", () => {
+            localStorage.setItem("campaignName", campaignName.value);
+            localStorage.setItem("campaignDescription", campaignDescription.value);
+
+            saveButton.textContent = "Salvo!";
+
+            setTimeout(() => {
+                saveButton.textContent = "Salvar alterações";
+            }, 1500);
+        });
+    </script>
+
+</body>
+</html>
