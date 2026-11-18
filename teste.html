@@ -1,11 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#292746">
     <title>Arcana | Gerenciar campanha</title>
-
     <script src="js/modal.js" defer></script>
     <script src="js/auth.js" defer></script>
 
@@ -16,126 +15,114 @@
 </head>
 
 <body>
-    <main class="container campaign-manager">
-        <div class="campaign-workspace">
-            <aside class="campaign-sidebar" aria-label="Menu da campanha">
-                <a class="campaign-back-link" href="campanha.html">
-                    <span aria-hidden="true">←</span>
-                    <span>Voltar para campanhas</span>
-                </a>
-                <div class="sidebar-brand">
-                    <span class="sidebar-brand-mark" aria-hidden="true">✦</span>
-                    <div>
-                        <strong>Arcana</strong>
-                        <span>Painel da campanha</span>
-                    </div>
-                </div>
+    <main class="container">
 
-                <nav class="campaign-nav" aria-label="Navegação da campanha">
-                    <section class="campaign-nav-group" aria-labelledby="nav-planning-title">
-                        <h2 id="nav-planning-title">Campanha</h2>
-                        <div class="campaign-nav-items">
-                            <button class="nav-button active" type="button" data-page="overview" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span>Visão geral</button>
-                            <button class="nav-button" type="button" data-page="players"><span class="nav-icon" aria-hidden="true">♙</span>Jogadores e personagens</button>
-                            <button class="nav-button" type="button" data-page="missions"><span class="nav-icon" aria-hidden="true">⚑</span>Missões</button>
-                            <button class="nav-button" type="button" data-page="diary"><span class="nav-icon" aria-hidden="true">▤</span>Diário de sessões</button>
-                        </div>
-                    </section>
+        <section class="campaign-header" aria-label="Informações da campanha">
 
-                    <section class="campaign-nav-group" aria-labelledby="nav-world-title">
-                        <h2 id="nav-world-title">Mundo</h2>
-                        <div class="campaign-nav-items">
-                            <button class="nav-button" type="button" data-page="agents"><span class="nav-icon" aria-hidden="true">✧</span>Agentes</button>
-                            <button class="nav-button" type="button" data-page="npcs"><span class="nav-icon" aria-hidden="true">♧</span>Galeria de NPCs</button>
-                            <button class="nav-button" type="button" data-page="clues"><span class="nav-icon" aria-hidden="true">⌕</span>Banco de pistas</button>
-                            <button class="nav-button" type="button" data-page="inventory"><span class="nav-icon" aria-hidden="true">◇</span>Inventário e recompensas</button>
-                        </div>
-                    </section>
+            <a href="campanha.html">Voltar</a>
 
-                    <section class="campaign-nav-group" aria-labelledby="nav-master-title">
-                        <h2 id="nav-master-title">Ferramentas do mestre</h2>
-                        <div class="campaign-nav-items">
-                            <button class="nav-button" type="button" data-page="combats"><span class="nav-icon" aria-hidden="true">⚔</span>Combates</button>
-                            <button class="nav-button" type="button" data-page="notes"><span class="nav-icon" aria-hidden="true">✎</span>Anotações do mestre</button>
-                        </div>
-                    </section>
-                </nav>
-            </aside>
-
-            <div class="campaign-main">
-                <section class="campaign-header" aria-label="Informações da campanha">
-                    <div class="campaign-heading">
-                        <span class="campaign-eyebrow">ESPAÇO DE AVENTURA</span>
-                        <h1 id="campaign-name-display" class="campaign-name-display" tabindex="0" aria-label="Nome da campanha. Clique para editar."></h1>
-                        <p id="campaign-description-display" class="campaign-description-display" tabindex="0" aria-label="Descrição da campanha. Clique para editar."></p>
-                        <span class="campaign-edit-hint">Clique no nome ou na descrição para editar</span>
-                    </div>
-
-                    <div class="campaign-edit-area">
-                        <div class="campaign-actions" id="campaign-actions" hidden>
-                            <button class="save-button" id="save-campaign" type="button">Salvar alterações</button>
-                            <button class="cancel-edit-button" id="cancel-campaign-edit" type="button">Cancelar</button>
-                        </div>
-                        <p class="campaign-save-status" id="campaign-save-status" role="status" aria-live="polite"></p>
-                    </div>
-                </section>
-
-                <section class="content-area" aria-live="polite">
-                    <section class="page-content active" id="overview">
-                        <h2>Visão geral da campanha</h2>
-                        <p>Informações gerais da campanha aparecerão aqui.</p>
-                    </section>
-
-                    <section class="page-content" id="players">
-                        <h2>Jogadores e personagens</h2>
-                        <p>Gerencie os jogadores e seus personagens.</p>
-                    </section>
-
-                    <section class="page-content" id="agents">
-                        <h2>Agentes</h2>
-                        <p>Gerencie os agentes da campanha.</p>
-                    </section>
-
-                    <section class="page-content" id="combats">
-                        <h2>Combates</h2>
-                        <p>Consulte e organize os combates.</p>
-                    </section>
-
-                    <section class="page-content" id="diary">
-                        <h2>Diário de sessões</h2>
-                        <p>Registre os acontecimentos das sessões.</p>
-                    </section>
-
-                    <section class="page-content" id="missions">
-                        <h2>Missões</h2>
-                        <p>Organize as missões da campanha.</p>
-                    </section>
-
-                    <section class="page-content" id="clues">
-                        <h2>Banco de pistas</h2>
-                        <p>Armazene e consulte pistas.</p>
-                    </section>
-
-                    <section class="page-content" id="notes">
-                        <h2>Anotações do mestre</h2>
-                        <p>Espaço para anotações particulares do mestre.</p>
-                    </section>
-
-                    <section class="page-content" id="npcs">
-                        <h2>Galeria de NPCs</h2>
-                        <p>Organize os NPCs da campanha.</p>
-                    </section>
-
-                    <section class="page-content" id="inventory">
-                        <h2>Inventário e recompensas</h2>
-                        <p>Gerencie itens e recompensas.</p>
-                    </section>
-                </section>
+            <div class="campaign-heading">
+                <h1 id="campaign-name-display" class="campaign-name-display" tabindex="0" aria-label="Nome da campanha. Clique para editar."></h1>
+                <p id="campaign-description-display" class="campaign-description-display" tabindex="0" aria-label="Descrição da campanha. Clique para editar."></p>
+                <span class="campaign-edit-hint">Clique no nome ou na descrição para editar</span>
             </div>
-        </div>
+
+            <div class="campaign-actions" id="campaign-actions" hidden>
+                <button class="save-button" id="save-campaign" type="button">Salvar alterações</button>
+                <button class="cancel-edit-button" id="cancel-campaign-edit" type="button">Cancelar</button>
+            </div>
+            <p class="campaign-save-status" id="campaign-save-status" role="status" aria-live="polite"></p>
+
+        </section>
+
+        <nav class="campaign-nav" aria-label="Navegação da campanha">
+            <section class="campaign-nav-group" aria-labelledby="nav-planning-title">
+                <h2 id="nav-planning-title">Campanha</h2>
+                <div class="campaign-nav-items">
+                    <button class="nav-button active" data-page="overview" aria-current="page">Visão geral</button>
+                    <button class="nav-button" data-page="players">Jogadores e personagens</button>
+                    <button class="nav-button" data-page="missions">Missões</button>
+                    <button class="nav-button" data-page="diary">Diário de sessões</button>
+                </div>
+            </section>
+
+            <section class="campaign-nav-group" aria-labelledby="nav-world-title">
+                <h2 id="nav-world-title">Mundo</h2>
+                <div class="campaign-nav-items">
+                    <button class="nav-button" data-page="agents">Agentes</button>
+                    <button class="nav-button" data-page="npcs">Galeria de NPCs</button>
+                    <button class="nav-button" data-page="clues">Banco de pistas</button>
+                    <button class="nav-button" data-page="inventory">Inventário e recompensas</button>
+                </div>
+            </section>
+
+            <section class="campaign-nav-group" aria-labelledby="nav-master-title">
+                <h2 id="nav-master-title">Ferramentas do mestre</h2>
+                <div class="campaign-nav-items">
+                    <button class="nav-button" data-page="combats">Combates</button>
+                    <button class="nav-button" data-page="notes">Anotações do mestre</button>
+                </div>
+            </section>
+        </nav>
+
+        <section class="content-area" aria-live="polite">
+
+            <section class="page-content active" id="overview">
+                <h2>Visão geral da campanha</h2>
+                <p>Informações gerais da campanha aparecerão aqui.</p>
+            </section>
+
+            <section class="page-content" id="players">
+                <h2>Jogadores e personagens</h2>
+                <p>Gerencie os jogadores e seus personagens.</p>
+            </section>
+
+            <section class="page-content" id="agents">
+                <h2>Agentes</h2>
+                <p>Gerencie os agentes da campanha.</p>
+            </section>
+
+            <section class="page-content" id="combats">
+                <h2>Combates</h2>
+                <p>Consulte e organize os combates.</p>
+            </section>
+
+            <section class="page-content" id="diary">
+                <h2>Diário de sessões</h2>
+                <p>Registre os acontecimentos das sessões.</p>
+            </section>
+
+            <section class="page-content" id="missions">
+                <h2>Missões</h2>
+                <p>Organize as missões da campanha.</p>
+            </section>
+
+            <section class="page-content" id="clues">
+                <h2>Banco de pistas</h2>
+                <p>Armazene e consulte pistas.</p>
+            </section>
+
+            <section class="page-content" id="notes">
+                <h2>Anotações do mestre</h2>
+                <p>Espaço para anotações particulares do mestre.</p>
+            </section>
+
+            <section class="page-content" id="npcs">
+                <h2>Galeria de NPCs</h2>
+                <p>Organize os NPCs da campanha.</p>
+            </section>
+
+            <section class="page-content" id="inventory">
+                <h2>Inventário e recompensas</h2>
+                <p>Gerencie itens e recompensas.</p>
+            </section>
+
+        </section>
+
     </main>
 
     <script src="js/teste.js" defer></script>
+
     <script src="js/theme.js" defer></script>
 </body>
 </html>
