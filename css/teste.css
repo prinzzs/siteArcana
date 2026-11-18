@@ -162,3 +162,116 @@ body {
         width: 100%;
     }
 }
+
+
+/* Gerenciador de combates e criaturas personalizadas */
+.demo-module-form,
+.combat-add-form,
+.combat-creature-form {
+    display: grid;
+    gap: 12px;
+    max-width: 760px;
+    margin: 18px 0;
+}
+.demo-module-form label,
+.combat-add-form label,
+.combat-creature-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.demo-module-form input,
+.demo-module-form textarea,
+.combat-add-form select,
+.combat-creature-form input,
+.combat-creature-form select,
+.combat-creature-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    color: #222;
+    font: inherit;
+}
+.demo-module-form textarea,
+.combat-creature-form textarea {
+    min-height: 76px;
+    resize: vertical;
+}
+.demo-module-form button,
+.combat-add-form button,
+.combat-creature-form button,
+.combat-card button {
+    width: fit-content;
+    padding: 8px 13px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: #fff;
+    color: #222;
+    cursor: pointer;
+}
+.combat-encounters {
+    display: grid;
+    gap: 18px;
+    margin-top: 22px;
+}
+.combat-card {
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+}
+.combat-card h3 {
+    margin-bottom: 8px;
+}
+.combat-card > p {
+    margin-bottom: 16px;
+}
+.combat-add-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+}
+.combat-add-form label {
+    flex: 1;
+    min-width: 220px;
+}
+.combat-creature-form {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    background: #fff;
+}
+.combat-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+.combat-creature-list {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0;
+    padding-left: 20px;
+}
+.combat-creature-list li {
+    line-height: 1.8;
+}
+.combat-card .danger-button {
+    border-color: #b44;
+    color: #a22;
+}
+@media (max-width: 600px) {
+    .combat-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .combat-add-form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .combat-add-form button,
+    .combat-card button {
+        width: 100%;
+    }
+}
