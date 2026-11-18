@@ -236,3 +236,27 @@
     background-position: center;
   }
 }
+
+
+/* Tipografia da primeira seção: um pouco maior e mais confortável. */
+.container-cima .title {
+  font-size: clamp(2.35rem, 4.2vw, 3.4rem);
+  line-height: 1.15;
+}
+
+.container-cima .subtitle {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.6;
+  max-width: 680px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .container-cima .title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .container-cima .subtitle {
+    font-size: 1.05rem;
+  }
+}
