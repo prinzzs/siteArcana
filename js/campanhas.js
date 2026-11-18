@@ -26,8 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function render() {
     const campaigns = read().filter(item => item.ownerId === session.userId);
-    example.hidden = campaigns.length > 0;
+    example.hidden = true;
     list.replaceChildren();
+    if (campaigns.length === 0) {
+      const empty = document.createElement("p");
+      empty.className = "empty-state";
+      empty.textContent = "Você ainda não criou nenhuma campanha. Use \"Adicionar Campanha\" para começar.";
+      list.append(empty);
+    }
     campaigns.forEach(campaign => {
       const card = document.createElement("article");
       card.className = "campanha-card";
@@ -57,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       remove.textContent = "Excluir";
       remove.addEventListener("click", () => {
         if (!confirm("Excluir esta campanha e seus dados demonstrativos?")) return;
-        write(read().filter(item => item.id !== campaign.id));
+        write(read().filter(item => !(item.id === campaign.id && item.ownerId === session.userId)));
         render();
       });
       const actions = document.createElement("footer");
