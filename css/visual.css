@@ -669,3 +669,68 @@ nav[aria-label="Navegação principal"] .perfil-avatar {
   filter: brightness(1.08);
 }
 
+
+
+/* Correções de contraste no modo escuro e largura da tabela de perícias. */
+:root[data-theme="dark"] body:has(#campaign-form) main > header h1,
+:root[data-theme="dark"] body:has(#campaign-form) main > header h2 {
+  color: var(--arcana-text) !important;
+}
+
+:root[data-theme="dark"] body:has(#campaign-form) main > header,
+:root[data-theme="dark"] body:has(#campaign-form) main > header * {
+  color: var(--arcana-text) !important;
+}
+
+:root[data-theme="dark"] .pericias {
+  display: table !important;
+  width: 100% !important;
+  max-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  color: var(--arcana-text) !important;
+  background: var(--arcana-surface) !important;
+}
+
+:root[data-theme="dark"] .pericias thead,
+:root[data-theme="dark"] .pericias th {
+  background: #252343 !important;
+  color: #e5e6ff !important;
+}
+
+:root[data-theme="dark"] .pericias tbody,
+:root[data-theme="dark"] .pericias td {
+  background: #292747 !important;
+  color: #d7d9f5 !important;
+}
+
+:root[data-theme="dark"] .pericias tr:nth-child(even) td {
+  background: #302e50 !important;
+}
+
+:root[data-theme="dark"] .pericias th,
+:root[data-theme="dark"] .pericias td {
+  border-color: #48466f !important;
+}
+
+:root[data-theme="dark"] .pericias .roll-button {
+  color: #fff !important;
+}
+
+/* Em telas estreitas, preserva a largura total e permite rolagem horizontal. */
+.pericias {
+  width: 100%;
+  table-layout: fixed;
+}
+
+@media (max-width: 600px) {
+  .pericias {
+    display: table !important;
+    min-width: 480px;
+  }
+
+  .pericias-wrap {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
