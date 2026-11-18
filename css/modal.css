@@ -154,3 +154,44 @@
   background: var(--arcana-blue, #376b9b);
   border-color: var(--arcana-blue, #376b9b);
 }
+
+
+/* Paleta Arcana aplicada aos componentes reais do modal. */
+.arcana-modal {
+  border-color: var(--arcana-border);
+  background: var(--arcana-surface);
+  color: var(--arcana-text);
+}
+.arcana-modal::backdrop { background: rgba(24, 39, 58, .48); }
+.arcana-modal-icon {
+  background: var(--arcana-blue-soft);
+  color: var(--arcana-blue);
+}
+.arcana-modal-icon.is-edit {
+  background: var(--arcana-blue-soft);
+  color: var(--arcana-blue);
+}
+.arcana-modal-panel h2 { color: var(--arcana-text); }
+.arcana-modal-message { color: var(--arcana-text-secondary); }
+.arcana-modal-input {
+  border-color: var(--arcana-border-strong);
+  background: var(--arcana-surface-subtle);
+  color: var(--arcana-text);
+}
+.arcana-modal-input:focus {
+  border-color: var(--arcana-blue);
+  box-shadow: 0 0 0 3px var(--arcana-focus);
+}
+.arcana-modal-cancel {
+  border-color: var(--arcana-border);
+  background: var(--arcana-surface);
+  color: var(--arcana-text-secondary);
+}
+.arcana-modal-accept {
+  border-color: var(--arcana-blue);
+  background: var(--arcana-blue);
+}
+.arcana-modal-accept:hover {
+  border-color: var(--arcana-blue-hover);
+  background: var(--arcana-blue-hover);
+}
