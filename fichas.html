@@ -4,61 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>Fichas</title>
+    <title>Arcana | Fichas de Criaturas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/fichas.css">
-    <script src="js/auth.js" defer></script>\n    <script src="js/fichas.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/fichas.js" defer></script>
 </head>
 <body>
     <nav aria-label="Navegação principal">
         <ul>
             <li><a href="campanha.html">Campanhas</a></li>
-            <li><a href="fichas.html">Fichas</a></li>
+            <li><a href="fichas.html" aria-current="page">Fichas</a></li>
             <li><a href="#" aria-disabled="true" title="Em breve">Nosso RPG</a></li>
         </ul>
         <div class="perfil" data-user-menu></div>
     </nav>
+
     <header class="pagina-titulo">
         <h1>Fichas de Criaturas</h1>
         <p>Encontre criaturas e entidades para suas campanhas.</p>
     </header>
+
     <main class="container">
-        <div id="catalog">
+        <section id="catalog" aria-label="Catálogo de criaturas">
             <div class="filters">
-                <input type="search" id="search" class="search" placeholder="Pesquisar criatura...">
-                <div class="filter-buttons">
-                    <button class="active" data-filter="todos">Todas</button>
-                    <button data-filter="real">Mundo Real</button>
-                    <button data-filter="arcana">Arcana</button>
+                <input type="search" id="search" class="search" placeholder="Pesquisar criatura..." aria-label="Pesquisar criatura">
+                <div class="filter-buttons" aria-label="Filtrar criaturas">
+                    <button type="button" class="active" data-filter="todos">Todas</button>
+                    <button type="button" data-filter="real">Mundo Real</button>
+                    <button type="button" data-filter="arcana">Arcana</button>
                 </div>
             </div>
-            </div>
-        </div>
-        <div id="detail" class="hidden">
+            <div id="entityGrid" class="entity-grid"></div>
+        </section>
+
+        <section id="detail" class="hidden" aria-label="Ficha da criatura">
             <a href="fichas.html" class="back-button">← Voltar às criaturas</a>
             <div class="banner">
-                Para utilizar a ficha em jogo, vá até a página da campanha, crie um combate e adicione a ficha.
+                Consulte os atributos, habilidades e informações da criatura.
             </div>
             <div class="sheet">
                 <div class="sheet-title">
-                    </h2>
-                    </p>
+                    <h2 id="entityName"></h2>
+                    <p id="entityInfo"></p>
                 </div>
+
                 <div class="hp-bar">
-                    <button id="hpDown" type="button">−</button>
-                    <span id="hpValue"></span>
-                    <button id="hpUp" type="button">+</button>
+                    <button id="hpDown" type="button" aria-label="Diminuir pontos de vida">−</button>
+                    <span id="hpValue">0 / 0</span>
+                    <button id="hpUp" type="button" aria-label="Aumentar pontos de vida">+</button>
                 </div>
-                <div class="tabs">
-                    <button class="active" data-tab="status">STATUS</button>
-                    <button data-tab="combate">COMBATE</button>
-                    <button data-tab="descricao">DESCRIÇÃO</button>
+
+                <div class="tabs" aria-label="Seções da ficha">
+                    <button type="button" class="active" data-tab="status">STATUS</button>
+                    <button type="button" data-tab="combate">COMBATE</button>
+                    <button type="button" data-tab="descricao">DESCRIÇÃO</button>
                 </div>
+
                 <section id="status" class="section active"></section>
                 <section id="combate" class="section"></section>
                 <section id="descricao" class="section"></section>
             </div>
-        </div>
+        </section>
     </main>
 </body>
 </html>
