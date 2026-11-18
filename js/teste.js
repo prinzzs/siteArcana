@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".campaign-header");
 
   if (!campaign) {
-    header.innerHTML = '<h1>Campanha não encontrada</h1><p>Volte para a lista e selecione uma campanha sua.</p><a class="back-link" href="campanha.html">Voltar</a>';
+    header.innerHTML = '<h1>Campanha não encontrada</h1><p>Volte para a lista e selecione uma campanha sua.</p><a href="campanha.html">Voltar às campanhas</a>';
     document.querySelector(".campaign-nav")?.remove();
     document.querySelector(".content-area")?.remove();
     return;
