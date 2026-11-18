@@ -15,9 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const campaigns = readCampaigns();
   const campaign = campaigns.find(item => item && item.id === campaignId && item.ownerId === session.userId);
 
-  const nameInput = document.getElementById("campaign-name");
-  const descriptionInput = document.getElementById("campaign-description");
+  const nameDisplay = document.getElementById("campaign-name-display");
+  const descriptionDisplay = document.getElementById("campaign-description-display");
+  const actions = document.getElementById("campaign-actions");
   const saveButton = document.getElementById("save-campaign");
+  const cancelButton = document.getElementById("cancel-campaign-edit");
+  const saveStatus = document.getElementById("campaign-save-status");
   const header = document.querySelector(".campaign-header");
 
   if (!campaign) {
@@ -27,8 +30,80 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  nameInput.value = campaign.name;
-  descriptionInput.value = campaign.description || "";
+  let editingCampaign = false;
+  let originalName = campaign.name || "";
+  let originalDescription = campaign.description || "";
+
+  function startCampaignEdit(target) {
+    if (!editingCampaign) {
+      editingCampaign = true;
+      nameDisplay.contentEditable = "true";
+      descriptionDisplay.contentEditable = "true";
+      actions.hidden = false;
+      saveStatus.textContent = "";
+    }
+    target.focus();
+  }
+
+  function renderCampaignHeading() {
+    nameDisplay.textContent = campaign.name || "Campanha sem nome";
+    descriptionDisplay.textContent = campaign.description || "Adicionar uma descrição à campanha...";
+    nameDisplay.contentEditable = "false";
+    descriptionDisplay.contentEditable = "false";
+    nameDisplay.classList.remove("is-editing");
+    descriptionDisplay.classList.remove("is-editing");
+    actions.hidden = true;
+    editingCampaign = false;
+    originalName = campaign.name || "";
+    originalDescription = campaign.description || "";
+  }
+
+  nameDisplay.addEventListener("click", () => startCampaignEdit(nameDisplay));
+  descriptionDisplay.addEventListener("click", () => startCampaignEdit(descriptionDisplay));
+  [nameDisplay, descriptionDisplay].forEach(element => {
+    element.addEventListener("focus", () => {
+      if (editingCampaign) element.classList.add("is-editing");
+    });
+    element.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        cancelButton.click();
+      }
+      if (event.key === "Enter" && element === nameDisplay) {
+        event.preventDefault();
+        descriptionDisplay.focus();
+      }
+    });
+  });
+
+  function cancelCampaignEdit() {
+    nameDisplay.textContent = originalName || "Campanha sem nome";
+    descriptionDisplay.textContent = originalDescription || "Adicionar uma descrição à campanha...";
+    renderCampaignHeading();
+    saveStatus.textContent = "Edição cancelada.";
+  }
+
+  function saveCampaign() {
+    const all = readCampaigns();
+    const current = all.find(item => item && item.id === campaignId && item.ownerId === session.userId);
+    if (!current) return;
+    const nextName = nameDisplay.textContent.trim();
+    current.name = nextName || originalName || "Campanha sem nome";
+    current.description = descriptionDisplay.textContent.trim();
+    try {
+      localStorage.setItem("arcana_campaigns", JSON.stringify(all));
+      campaign.name = current.name;
+      campaign.description = current.description;
+      renderCampaignHeading();
+      saveStatus.textContent = "Alterações salvas.";
+    } catch {
+      saveStatus.textContent = "Não foi possível salvar. Tente novamente.";
+    }
+  }
+
+  renderCampaignHeading();
+  saveButton.addEventListener("click", saveCampaign);
+  cancelButton.addEventListener("click", cancelCampaignEdit);
 
   const buttons = document.querySelectorAll(".nav-button");
   const pages = document.querySelectorAll(".page-content");
@@ -47,23 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  function saveCampaign() {
-    const all = readCampaigns();
-    const current = all.find(item => item && item.id === campaignId && item.ownerId === session.userId);
-    if (!current) return;
-    current.name = nameInput.value.trim() || current.name;
-    current.description = descriptionInput.value.trim();
-    try {
-      localStorage.setItem("arcana_campaigns", JSON.stringify(all));
-      saveButton.textContent = "Salvo!";
-      saveButton.setAttribute("aria-live", "polite");
-      setTimeout(() => saveButton.textContent = "Salvar alterações", 1200);
-    } catch {
-      saveButton.textContent = "Não foi possível salvar";
-      setTimeout(() => saveButton.textContent = "Salvar alterações", 1800);
-    }
-  }
-  saveButton.addEventListener("click", saveCampaign);
+
 
   // Módulos demonstrativos: os registros ficam separados por campanha e navegador.
   const modules = {
