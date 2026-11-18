@@ -491,7 +491,7 @@ function rolarPericia(index) {
     const dados = valor.match(/^(-?\d*)d(\d+)?([+-]\d+)?$/i);
 
     if (!dados) {
-        alert("Expressão não reconhecida: " + valor);
+        ArcanaModal.alert("A expressão de dados desta perícia não é reconhecida: " + valor, "Não foi possível rolar");
         return;
     }
 
@@ -513,11 +513,9 @@ function rolarPericia(index) {
 
     resultado += modificador;
 
-    alert(
-        `${escapeHTML(pericia[0])}\n` +
-        `Dados: ${detalhes.join(" + ")}\n` +
-        `Modificador: ${modificador}\n` +
-        `Resultado: ${resultado}`
+    ArcanaModal.alert(
+        `Dados: ${detalhes.join(" + ")}\nModificador: ${modificador}\nResultado: ${resultado}`,
+        "Resultado — " + pericia[0]
     );
 }
 
