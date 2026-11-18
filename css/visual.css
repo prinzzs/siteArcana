@@ -355,3 +355,87 @@ nav[aria-label="Navegação principal"] .perfil > a {
     max-width: min(42vw, 180px);
   }
 }
+
+
+/* ==========================================================
+   Normalização final — mesma paleta em todas as páginas
+   ========================================================== */
+:root {
+  --panel: var(--arcana-surface);
+  --ink: var(--arcana-text);
+  --muted: var(--arcana-text-secondary);
+  --line: var(--arcana-border);
+  --accent-dark: var(--arcana-blue-hover);
+  --accent-light: var(--arcana-blue-soft);
+}
+
+body {
+  background: var(--arcana-bg);
+  color: var(--arcana-text);
+}
+
+.content-area,
+.combat-card,
+.combat-creature-form,
+.campaign-nav .nav-button,
+.campaign-nav .nav-button.active {
+  color: var(--arcana-text);
+}
+
+.content-area,
+.combat-card,
+.combat-creature-form {
+  background: var(--arcana-surface);
+  border-color: var(--arcana-border);
+  box-shadow: var(--arcana-shadow-card);
+}
+
+.campaign-header,
+.campaign-header h1,
+.campaign-header a,
+.page-content h2,
+.combat-card h3 {
+  color: var(--arcana-text);
+}
+
+.campaign-header a:hover {
+  color: var(--arcana-blue);
+}
+
+.campaign-nav .nav-button {
+  background: var(--arcana-surface);
+  border-color: var(--arcana-border);
+  color: var(--arcana-text-secondary);
+}
+
+.campaign-nav .nav-button:hover {
+  background: var(--arcana-surface-subtle);
+  border-color: var(--arcana-border-strong);
+  color: var(--arcana-text);
+}
+
+.campaign-nav .nav-button.active {
+  background: var(--arcana-blue-soft);
+  border-color: #c8d8e8;
+  color: var(--arcana-blue);
+}
+
+:where(.demo-module-form button, .combat-add-form button,
+.combat-creature-form button, .combat-card button) {
+  border-color: var(--arcana-blue);
+  background: var(--arcana-blue);
+  color: #fff;
+}
+
+:where(.demo-module-form button:hover, .combat-add-form button:hover,
+.combat-creature-form button:hover, .combat-card button:hover) {
+  border-color: var(--arcana-blue-hover);
+  background: var(--arcana-blue-hover);
+  color: #fff;
+}
+
+.container-cima #saiba-mais,
+.container-cima #saiba-mais:hover,
+.container-cima #saiba-mais:focus {
+  text-decoration: none;
+}
