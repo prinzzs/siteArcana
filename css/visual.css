@@ -963,3 +963,54 @@ nav[aria-label="Navegação principal"] .perfil-avatar {
   color: var(--arcana-text) !important;
   border-color: var(--arcana-border-strong) !important;
 }
+
+/* Campanhas: formulário integrado ao fundo da página, sem painel destacado. */
+body:has(#campaign-form) #new-campaign,
+body:has(#campaign-form) #campaign-form {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Ações dos cards com aparência de links, mantendo botões acessíveis
+   para ações que alteram ou removem dados. */
+.campanha-acoes .acao-editar,
+.campanha-acoes .acao-excluir {
+  display: inline;
+  min-height: 0 !important;
+  width: auto !important;
+  margin: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--arcana-blue) !important;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-shadow: none !important;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.campanha-acoes .acao-excluir {
+  color: var(--arcana-danger) !important;
+}
+
+.campanha-acoes .acao-editar:hover,
+.campanha-acoes .acao-excluir:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-decoration: underline;
+}
+
+:root[data-theme="dark"] body:has(#campaign-form) #new-campaign,
+:root[data-theme="dark"] body:has(#campaign-form) #campaign-form {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
