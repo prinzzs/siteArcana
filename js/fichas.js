@@ -262,7 +262,7 @@ function renderizarEntidades() {
         const imagem = document.createElement("img");
         imagem.src = entidade.imagem;
         imagem.alt = entidade.nome;
-        imagem.onerror = () => imagem.style.display = "none";
+        imagem.onerror = () => imagem.style.visibility = "hidden";
 
         const conteudo = document.createElement("div");
         conteudo.className = "card-content";
