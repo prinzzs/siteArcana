@@ -1,32 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750&display=swap");
 
 /* ==========================================================
-   ARCANA — design system
-   Base clara, azul mineral e tipografia Inter.
+   ARCANA — Reino Encantado
+   Azul celestial, índigo, lavanda e luz dourada.
    ========================================================== */
 :root {
   color-scheme: light;
-  --arcana-bg: #f6f8fb;
-  --arcana-surface: #ffffff;
+  --arcana-bg: #e9eefc;
+  --arcana-surface: #f8f9ff;
   --arcana-surface-raised: #ffffff;
-  --arcana-surface-subtle: #f1f5f9;
-  --arcana-text: #202b3c;
-  --arcana-text-secondary: #536174;
-  --arcana-text-muted: #788597;
-  --arcana-border: #e2e8f0;
-  --arcana-border-strong: #cbd5e1;
-  --arcana-blue: #376b9b;
-  --arcana-blue-hover: #2d587f;
-  --arcana-blue-soft: #eaf1f8;
-  --arcana-focus: rgba(55, 107, 155, .22);
-  --arcana-danger: #b54747;
-  --arcana-success: #287a59;
+  --arcana-surface-subtle: #dce5fa;
+  --arcana-text: #292957;
+  --arcana-text-secondary: #59658a;
+  --arcana-text-muted: #737da0;
+  --arcana-border: #d2d9f0;
+  --arcana-border-strong: #b9c5e8;
+  --arcana-blue: #555fc0;
+  --arcana-blue-hover: #464fa8;
+  --arcana-blue-soft: #e3e6ff;
+  --arcana-focus: rgba(130, 142, 251, .28);
+  --arcana-danger: #b54767;
+  --arcana-success: #397f78;
+  --arcana-gold: #d5b878;
+  --arcana-cyan: #bce0f8;
   --arcana-radius-sm: 8px;
   --arcana-radius-md: 12px;
   --arcana-radius-lg: 16px;
-  --arcana-shadow-card: 0 1px 2px rgba(24, 39, 58, .04), 0 6px 20px rgba(24, 39, 58, .035);
+  --arcana-shadow-card: 0 1px 2px rgba(38, 39, 99, .04), 0 6px 20px rgba(38, 39, 99, .055);
   --arcana-content-width: 1160px;
   --arcana-gutter: clamp(18px, 3vw, 32px);
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --arcana-bg: #19172f;
+  --arcana-surface: #292747;
+  --arcana-surface-raised: #35345d;
+  --arcana-surface-subtle: #30445f;
+  --arcana-text: #e5e6ff;
+  --arcana-text-secondary: #c3c5e6;
+  --arcana-text-muted: #a6a9d0;
+  --arcana-border: #48466f;
+  --arcana-border-strong: #5d5a89;
+  --arcana-blue: #828efb;
+  --arcana-blue-hover: #747fe5;
+  --arcana-blue-soft: #35345d;
+  --arcana-focus: rgba(130, 142, 251, .34);
+  --arcana-danger: #ff929e;
+  --arcana-success: #83d7bd;
+  --arcana-gold: #e3c987;
+  --arcana-cyan: #9ccfea;
+  --arcana-shadow-card: 0 8px 28px rgba(8, 7, 24, .2);
 }
 
 html { background: var(--arcana-bg); }
@@ -439,3 +462,88 @@ body {
 .container-cima #saiba-mais:focus {
   text-decoration: none;
 }
+
+
+/* ==========================================================
+   Tema escuro e acabamentos da identidade Reino Encantado
+   ========================================================== */
+:root[data-theme="dark"] html,
+:root[data-theme="dark"] body { color-scheme: dark; }
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] body:has(.container-login),
+:root[data-theme="dark"] body:has(.parte-central) {
+  background-color: var(--arcana-bg) !important;
+  color: var(--arcana-text) !important;
+}
+:root[data-theme="dark"] :where(h1,h2,h3,h4,h5,h6,p,li,label,small,th,td) {
+  color: inherit;
+}
+:root[data-theme="dark"] :where(p,li,.pagina-titulo p,main > header p,.page-content p) {
+  color: var(--arcana-text-secondary);
+}
+:where(body > nav, body > header nav, nav[aria-label="Navegação principal"]) {
+  background: var(--arcana-surface) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border) !important;
+}
+:where(.campanha-card,.entity-card,.sheet,.info-box,.attribute,.banner,
+.combat-card,.combat-creature-form,.card-content,.container-login,
+.parte-central,.content-area,.campaign-header,.page-content.active,
+.footer,.footer-localizacao) {
+  background-color: var(--arcana-surface) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border) !important;
+}
+:where(.attribute,.info-box,.banner,.category,
+.filter-buttons button.active,.tabs button.active,.nav-button.active) {
+  background-color: var(--arcana-blue-soft) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border-strong) !important;
+}
+:where(input,textarea,select,.search,.campaign-field input,.campaign-field textarea) {
+  background: var(--arcana-surface-raised) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border-strong) !important;
+}
+:where(input,textarea,select)::placeholder { color: var(--arcana-text-muted); }
+:where(button,.button,.button-button,.save-button,.roll-button,
+.demo-module-form button,.combat-add-form button,.combat-creature-form button,
+.combat-card button,.hp-bar button) {
+  background: var(--arcana-blue);
+  border-color: var(--arcana-blue);
+  color: #fff;
+}
+:where(button:hover,.button:hover,.button-button:hover,.save-button:hover,
+.roll-button:hover) {
+  background: var(--arcana-blue-hover);
+  border-color: var(--arcana-blue-hover);
+}
+:where(a,.back-button) { color: var(--arcana-blue); }
+:where(a:hover,.back-button:hover) { color: var(--arcana-blue-hover); }
+nav[aria-label="Navegação principal"] .perfil,
+nav[aria-label="Navegação principal"] .perfil-sair {
+  background: var(--arcana-surface-subtle);
+  border-color: var(--arcana-border);
+}
+nav[aria-label="Navegação principal"] .perfil-nome { color: var(--arcana-text); }
+nav[aria-label="Navegação principal"] .perfil-avatar {
+  background: var(--arcana-blue-soft);
+  color: var(--arcana-blue);
+}
+.footer > p { color: var(--arcana-text-muted); }
+.container-cima { color: #fff; }
+.container-cima .title,
+.container-cima .subtitle,
+.container-cima #saiba-mais { color: #fff !important; }
+.container-cima .title span { color: #dce0ff !important; }
+:root[data-theme="dark"] .container-cima {
+  background-image:
+    linear-gradient(rgba(25, 23, 47, .52), rgba(25, 23, 47, .66)),
+    url("../img/fundo.jpg");
+}
+#arcana-theme-toggle {
+  background: var(--arcana-blue) !important;
+  border-color: var(--arcana-border-strong) !important;
+  color: #fff !important;
+}
+:root[data-theme="dark"] #arcana-theme-toggle { background: #555fc0 !important; }
