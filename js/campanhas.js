@@ -47,11 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const rename = document.createElement("button");
       rename.type = "button";
       rename.textContent = "Editar";
-      rename.addEventListener("click", () => {
-        const next = prompt("Novo nome da campanha:", campaign.name);
+      rename.addEventListener("click", async () => {
+        const next = await ArcanaModal.prompt("Digite o novo nome para esta campanha.", campaign.name, "Renomear campanha");
         if (next === null) return;
         const clean = next.trim();
-        if (!clean) return alert("O nome não pode ficar vazio.");
+        if (!clean) {
+          await ArcanaModal.alert("O nome da campanha não pode ficar vazio.", "Nome obrigatório");
+          return;
+        }
         const all = read();
         const target = all.find(item => item.id === campaign.id && item.ownerId === session.userId);
         if (target) target.name = clean;
@@ -61,8 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const remove = document.createElement("button");
       remove.type = "button";
       remove.textContent = "Excluir";
-      remove.addEventListener("click", () => {
-        if (!confirm("Excluir esta campanha e seus dados demonstrativos?")) return;
+      remove.addEventListener("click", async () => {
+        const confirmed = await ArcanaModal.confirm(
+          "Esta ação não poderá ser desfeita. Deseja realmente excluir esta campanha e seus dados demonstrativos?",
+          "Excluir campanha"
+        );
+        if (!confirmed) return;
         write(read().filter(item => !(item.id === campaign.id && item.ownerId === session.userId)));
         render();
       });
