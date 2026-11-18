@@ -145,3 +145,325 @@ button:hover, .button:hover, .button-button:hover, .save-button:hover {
     min-height: 50px !important;
   }
 }
+
+
+/* =========================================================
+   ARCANA — IDENTIDADE VISUAL
+   Minimalismo arcano: editorial, acolhedor e funcional.
+   Esta camada altera somente a apresentação visual.
+   Não modifica estrutura, navegação ou comportamento.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Tipografia: personalidade nos títulos, leitura confortável no restante. */
+html,
+body,
+input,
+textarea,
+select,
+button {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+nav,
+nav * {
+  font-family: Arial, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+.title,
+.sheet-title h2,
+.page-content h2 {
+  font-family: 'Alegreya', Georgia, serif !important;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+
+p,
+label,
+small,
+input,
+textarea,
+select,
+button {
+  letter-spacing: -0.01em;
+}
+
+/* Superfície geral — mantém as cores centrais já definidas acima. */
+html {
+  scroll-behavior: smooth;
+  background: var(--color-background);
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 12% 0%, color-mix(in srgb, var(--color-accent) 6%, transparent), transparent 38%),
+    var(--color-background) !important;
+  color: var(--color-text) !important;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Cartões e áreas de conteúdo: contornos suaves, sem mudar dimensões. */
+.campanha-card,
+.entity-card,
+.sheet,
+.info-box,
+.attribute,
+.banner,
+.combat-card,
+.combat-creature-form,
+.card-content,
+.container-login,
+.parte-central,
+.footer-localizacao {
+  border: 1px solid var(--color-border) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 5px rgba(24, 18, 34, .025), 0 12px 30px rgba(24, 18, 34, .045) !important;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.campanha-card:hover,
+.entity-card:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 48%, var(--color-border)) !important;
+  box-shadow: 0 5px 12px rgba(24, 18, 34, .04), 0 18px 38px rgba(24, 18, 34, .075) !important;
+}
+
+.campanha-card h3,
+.card-content h2,
+.sheet-title h2 {
+  color: var(--color-text) !important;
+}
+
+.campanha-card a,
+.card-content a,
+.back-button {
+  color: var(--color-primary) !important;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Formulários com foco claro e elegante. */
+input,
+textarea,
+select,
+.search,
+.campaign-field input,
+.campaign-field textarea,
+.demo-module-form input,
+.demo-module-form textarea,
+.combat-add-form select,
+.combat-creature-form input,
+.combat-creature-form select,
+.combat-creature-form textarea {
+  border: 1px solid var(--color-border) !important;
+  border-radius: 9px !important;
+  box-shadow: inset 0 1px 2px rgba(20, 16, 28, .025);
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.search:focus,
+.campaign-field input:focus,
+.campaign-field textarea:focus {
+  border-color: var(--color-accent) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 18%, transparent) !important;
+}
+
+/* Botões: consistentes, com destaque contido. */
+button,
+.button,
+.button-button,
+.save-button,
+.roll-button,
+.demo-module-form button,
+.combat-add-form button,
+.combat-creature-form button,
+.combat-card button,
+.hp-bar button {
+  border-radius: 9px !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 700;
+  transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+button:focus-visible,
+a:focus-visible,
+.button:focus-visible,
+.button-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
+  outline-offset: 3px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .58;
+}
+
+/* Títulos e cabeçalhos das páginas existentes. */
+.pagina-titulo h1,
+body > main > header h1,
+.container-cima .title {
+  color: var(--color-text) !important;
+}
+
+.pagina-titulo p,
+.subtitle,
+.footer-localizacao p,
+.page-content p {
+  color: var(--color-text-muted) !important;
+}
+
+.container-cima .title span {
+  color: var(--color-primary);
+}
+
+#saiba-mais {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+  text-underline-offset: 4px;
+}
+
+#map {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--color-shadow);
+}
+
+/* Catálogo e fichas: hierarquia mais editorial sem alterar sua estrutura. */
+.entity-card img {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.category {
+  border: 1px solid var(--color-border);
+  font-weight: 700;
+  letter-spacing: .015em;
+}
+
+.sheet-title {
+  padding-bottom: 4px;
+}
+
+.attribute,
+.info-box,
+.banner {
+  border-radius: 11px !important;
+}
+
+.attribute strong {
+  color: var(--color-primary);
+  font-family: 'Alegreya', Georgia, serif;
+  font-weight: 700;
+}
+
+.pericias th {
+  font-weight: 700;
+}
+
+.pericias td,
+.pericias th {
+  border-color: var(--color-border);
+}
+
+/* Gerenciamento da campanha: melhora a leitura sem tocar na navegação. */
+.campaign-header {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.campaign-field label,
+.demo-module-form label,
+.combat-add-form label,
+.combat-creature-form label {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.combat-card,
+.combat-creature-form {
+  border-radius: 13px !important;
+}
+
+.combat-card .danger-button {
+  background: transparent !important;
+  color: var(--color-danger) !important;
+  border-color: color-mix(in srgb, var(--color-danger) 45%, var(--color-border)) !important;
+}
+
+/* Autenticação: acabamento mais refinado sem alterar campos ou fluxo. */
+body:has(#login-form),
+body:has(#cadastro-form) {
+  background:
+    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--color-accent) 11%, transparent), transparent 55%),
+    var(--color-background) !important;
+}
+
+body:has(#login-form) .container-login,
+body:has(#cadastro-form) .parte-central {
+  border-radius: 18px !important;
+  box-shadow: 0 5px 14px rgba(24, 18, 34, .035), 0 24px 65px rgba(24, 18, 34, .075) !important;
+}
+
+body:has(#login-form) h1,
+body:has(#cadastro-form) h1 {
+  font-size: clamp(1.8rem, 4vw, 2.25rem);
+}
+
+body:has(#login-form) > a,
+body:has(#cadastro-form) > a {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+}
+
+/* Modo escuro: sombras mais contidas e superfícies bem separadas. */
+:root[data-theme="dark"] body {
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(196, 165, 242, .055), transparent 42%),
+    var(--color-background) !important;
+}
+
+:root[data-theme="dark"] .campanha-card,
+:root[data-theme="dark"] .entity-card,
+:root[data-theme="dark"] .sheet,
+:root[data-theme="dark"] .info-box,
+:root[data-theme="dark"] .attribute,
+:root[data-theme="dark"] .banner,
+:root[data-theme="dark"] .combat-card,
+:root[data-theme="dark"] .combat-creature-form,
+:root[data-theme="dark"] .card-content,
+:root[data-theme="dark"] .container-login,
+:root[data-theme="dark"] .parte-central {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .12), 0 14px 34px rgba(0, 0, 0, .16) !important;
+}
+
+/* Respeita quem prefere menos movimento. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
