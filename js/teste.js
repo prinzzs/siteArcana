@@ -4,8 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const params = new URLSearchParams(location.search);
   const campaignId = params.get("campanha");
-  const campaigns = JSON.parse(localStorage.getItem("arcana_campaigns") || "[]");
-  const campaign = campaigns.find(item => item.id === campaignId && item.ownerId === session.userId);
+  const readCampaigns = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem("arcana_campaigns") || "[]");
+      return Array.isArray(value) ? value : [];
+    } catch {
+      return [];
+    }
+  };
+  const campaigns = readCampaigns();
+  const campaign = campaigns.find(item => item && item.id === campaignId && item.ownerId === session.userId);
 
   const nameInput = document.getElementById("campaign-name");
   const descriptionInput = document.getElementById("campaign-description");
@@ -40,14 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function saveCampaign() {
-    const all = JSON.parse(localStorage.getItem("arcana_campaigns") || "[]");
-    const current = all.find(item => item.id === campaignId && item.ownerId === session.userId);
+    const all = readCampaigns();
+    const current = all.find(item => item && item.id === campaignId && item.ownerId === session.userId);
     if (!current) return;
     current.name = nameInput.value.trim() || current.name;
     current.description = descriptionInput.value.trim();
-    localStorage.setItem("arcana_campaigns", JSON.stringify(all));
-    saveButton.textContent = "Salvo!";
-    setTimeout(() => saveButton.textContent = "Salvar alterações", 1200);
+    try {
+      localStorage.setItem("arcana_campaigns", JSON.stringify(all));
+      saveButton.textContent = "Salvo!";
+      saveButton.setAttribute("aria-live", "polite");
+      setTimeout(() => saveButton.textContent = "Salvar alterações", 1200);
+    } catch {
+      saveButton.textContent = "Não foi possível salvar";
+      setTimeout(() => saveButton.textContent = "Salvar alterações", 1800);
+    }
   }
   saveButton.addEventListener("click", saveCampaign);
 
