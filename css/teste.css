@@ -1359,3 +1359,248 @@ body:has(.campaign-manager) {
     width: 100%;
   }
 }
+
+
+/* Interface limpa e responsiva: navegação alinhada à esquerda, sem cartões */
+body:has(.campaign-manager) {
+  overflow-x: hidden;
+}
+
+.campaign-manager,
+.campaign-workspace {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.campaign-workspace {
+  grid-template-columns: clamp(218px, 22vw, 258px) minmax(0, 1fr);
+  gap: 0;
+  align-items: stretch;
+}
+
+.campaign-sidebar {
+  left: 0;
+  width: 100%;
+  min-width: 0;
+  padding: 24px 16px;
+  border: 0;
+  border-right: 1px solid var(--arcana-border);
+  border-radius: 0;
+  background: var(--arcana-surface);
+  box-shadow: none;
+}
+
+.sidebar-brand {
+  display: none !important;
+}
+
+.campaign-nav {
+  width: 100%;
+  align-items: stretch;
+  margin: 0;
+}
+
+.campaign-nav-group,
+.campaign-nav-items {
+  width: 100%;
+  min-width: 0;
+}
+
+.campaign-nav-group h2 {
+  padding-left: 8px;
+}
+
+.campaign-nav .nav-button {
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  padding: 9px 8px;
+  border: 0;
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+}
+
+.campaign-nav .nav-button:hover {
+  border-color: transparent;
+  border-left-color: var(--arcana-border-strong);
+  border-radius: 0;
+  background: transparent;
+}
+
+.campaign-nav .nav-button.active {
+  border-color: transparent;
+  border-left-color: var(--arcana-blue);
+  border-radius: 0;
+  background: transparent;
+  color: var(--arcana-blue);
+}
+
+.nav-icon,
+.campaign-nav .nav-button.active .nav-icon {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.campaign-main {
+  width: 100%;
+  min-width: 0;
+  padding: clamp(22px, 3.2vw, 48px);
+}
+
+.campaign-header,
+.content-area {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.campaign-header {
+  padding: 0 0 24px;
+  border-bottom: 1px solid var(--arcana-border);
+}
+
+.content-area {
+  min-height: 0;
+  padding: 0;
+}
+
+.page-content,
+.page-content.active {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none;
+}
+
+/* Os módulos e encontros usam fluxo de conteúdo, não cartões */
+.demo-module-form,
+.combat-add-form,
+.combat-creature-form,
+.combat-card,
+.combat-encounters {
+  max-width: 100%;
+  margin: 20px 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.combat-card {
+  padding: 18px 0;
+  border-top: 1px solid var(--arcana-border);
+}
+
+.combat-creature-form {
+  padding: 14px 0;
+  border-top: 1px solid var(--arcana-border);
+}
+
+.demo-module-form + ul,
+.combat-creature-list {
+  padding-left: 20px;
+}
+
+.demo-module-form button,
+.combat-add-form button,
+.combat-creature-form button,
+.combat-card button {
+  border-radius: 7px;
+  box-shadow: none;
+}
+
+@media (max-width: 760px) {
+  .campaign-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .campaign-sidebar {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+    padding: 15px 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--arcana-border);
+  }
+
+  .campaign-nav {
+    gap: 15px;
+  }
+
+  .campaign-nav-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: start;
+  }
+
+  .campaign-nav .nav-button {
+    min-height: 40px;
+    padding: 7px 5px;
+  }
+
+  .campaign-main {
+    padding: 24px 18px 40px;
+  }
+
+  .campaign-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .campaign-edit-area {
+    width: 100%;
+    justify-items: start;
+  }
+
+  .campaign-save-status {
+    text-align: left;
+  }
+}
+
+@media (max-width: 440px) {
+  .campaign-nav-items {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .campaign-nav .nav-button {
+    min-height: 38px;
+  }
+
+  .campaign-main {
+    padding: 20px 15px 32px;
+  }
+
+  .campaign-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .campaign-actions button {
+    width: 100%;
+  }
+
+  .combat-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
