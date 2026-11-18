@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arcana | Cadastro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcana | Cadastro</title>
+  <script src="js/auth.js" defer></script>
+  <script src="js/cadastro.js" defer></script>
 </head>
 <body>
+  <a href="index.html">← Página inicial</a>
+  <main class="parte-central">
+    <h1>Criar conta</h1>
+    <form id="cadastro-form">
+      <label for="username">Nome de usuário</label>
+      <input id="username" name="username" type="text" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_.]{3,20}" title="Use de 3 a 20 letras, números, ponto ou underline." required>
+      <small>Único no Arcana. Não pode ser repetido.</small>
 
-  <a href="index.html">← Página inicial</a>\n  <div class="parte-central">
-        <h1>Cadastre-se</h1>
-        <form action="" method="post">
-            <input type="text" name="nome" placeholder="Nome de usuário">
-            <input type="email" name="email" placeholder="Email">
-            <input type="password" name="senha" placeholder="Senha">
-            <input type="password" name="confirmar-senha" placeholder="Confirmar senha">
-            <button type="submit">Cadastrar</button>
-        </form>
-        <div class="login-link">
-            <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
-        </div>
-  </div>
+      <label for="displayName">Seu nome</label>
+      <input id="displayName" name="displayName" type="text" autocomplete="name" maxlength="60" required>
 
-    
+      <label for="password">Senha</label>
+      <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+      <small>Use pelo menos 8 caracteres.</small>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p id="cadastro-message" role="status" aria-live="polite"></p>
+    <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+  </main>
 </body>
 </html>
