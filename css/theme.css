@@ -1,0 +1,147 @@
+/*
+  ARCANA — PALETA CENTRAL
+  Para mudar as cores do site, altere somente os valores abaixo.
+*/
+:root {
+  color-scheme: light;
+  --color-primary: #493765;
+  --color-primary-hover: #604a83;
+  --color-accent: #9b7bd1;
+  --color-background: #f5f3f8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eeeaf3;
+  --color-text: #282331;
+  --color-text-muted: #716b7c;
+  --color-border: #ded8e8;
+  --color-input: #ffffff;
+  --color-shadow: 0 8px 24px rgba(35, 22, 54, .08);
+  --color-danger: #b42318;
+  --color-success: #18794e;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: #b99be8;
+  --color-primary-hover: #d0b9f2;
+  --color-accent: #c4a5f2;
+  --color-background: #17151d;
+  --color-surface: #24212c;
+  --color-surface-muted: #302b3a;
+  --color-text: #f0edf5;
+  --color-text-muted: #b5adbf;
+  --color-border: #484153;
+  --color-input: #201d27;
+  --color-shadow: 0 8px 26px rgba(0, 0, 0, .28);
+  --color-danger: #ff8b82;
+  --color-success: #72d6a2;
+}
+
+html { background: var(--color-background); }
+body {
+  background-color: var(--color-background) !important;
+  color: var(--color-text) !important;
+  transition: background-color .2s ease, color .2s ease;
+}
+body, input, textarea, select, button { font-family: Arial, sans-serif; }
+h1, h2, h3, h4, p, label, small, li, th, td, span { color: inherit; }
+p, small, .pagina-titulo p, .page-content p, .card-content p { color: var(--color-text-muted); }
+a { color: var(--color-primary); }
+a:hover { color: var(--color-primary-hover); }
+
+nav, .campaign-nav {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+nav ul li a, .nav-button { color: var(--color-text) !important; }
+nav ul li a:hover, nav ul li a.active, .nav-button:hover, .nav-button.active {
+  color: var(--color-primary) !important;
+}
+nav ul li a.active, .nav-button.active { border-color: var(--color-primary); }
+
+.container-login, .parte-central, .campanha-card, .entity-card, .sheet,
+.info-box, .attribute, .banner, .combat-card, .combat-creature-form,
+.card-content, .footer, .footer-localizacao {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+  box-shadow: var(--color-shadow);
+}
+.attribute, .info-box, .banner { background-color: var(--color-surface-muted) !important; }
+.entity-card img { background: var(--color-surface-muted); }
+.category { background: var(--color-surface-muted) !important; color: var(--color-text) !important; }
+input, textarea, select, .search,
+.campaign-field input, .campaign-field textarea {
+  background: var(--color-input) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+input::placeholder, textarea::placeholder { color: var(--color-text-muted); opacity: .8; }
+input:focus, textarea:focus, select:focus {
+  outline-color: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+}
+button, .button, .button-button, .save-button, .hp-bar button,
+.roll-button, .demo-module-form button, .combat-card button,
+.combat-add-form button, .combat-creature-form button {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+button:hover, .button:hover, .button-button:hover, .save-button:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+.filter-buttons button, .tabs button, .combat-card .secondary-button {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+.filter-buttons button.active, .tabs button.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+.pericias th { background: var(--color-surface-muted); color: var(--color-text); }
+.pericias td, .pericias th, .tabs { border-color: var(--color-border); }
+.back-button { color: var(--color-primary); }
+#login-message[data-type="error"], #cadastro-message[data-type="error"] { color: var(--color-danger); }
+#login-message[data-type="success"], #cadastro-message[data-type="success"] { color: var(--color-success); }
+
+/* Botão flutuante: fica acima de menus, modais e demais camadas. */
+#arcana-theme-toggle {
+  position: fixed !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  z-index: 2147483647 !important;
+  width: 54px !important;
+  height: 54px !important;
+  min-width: 54px !important;
+  min-height: 54px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 2px solid var(--color-border) !important;
+  border-radius: 50% !important;
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  box-shadow: 0 5px 18px rgba(0,0,0,.28) !important;
+  font-size: 23px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  transition: transform .2s ease, background .2s ease !important;
+}
+#arcana-theme-toggle:hover { transform: translateY(-3px); }
+#arcana-theme-toggle:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 4px; }
+
+@media (max-width: 600px) {
+  #arcana-theme-toggle {
+    right: 15px !important;
+    bottom: 15px !important;
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+  }
+}
