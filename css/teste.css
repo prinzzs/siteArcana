@@ -627,3 +627,40 @@ body:has(.campaign-manager) .campaign-back-link:hover {
 :root[data-theme="dark"] body:has(.campaign-manager) .combat-card {
   border-radius: 0 !important;
 }
+
+/* Modo claro do gerenciador: remove os painéis coloridos herdados do tema global.
+   Mantém os elementos e funcionalidades, apenas deixa as superfícies integradas ao fundo. */
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .campaign-sidebar,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .campaign-header,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .content-area,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .page-content,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .page-content.active,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .demo-module-form,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .combat-add-form,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .combat-creature-form,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .combat-card,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .combat-encounters,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .campaign-nav {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .campaign-nav .nav-button,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .campaign-nav .nav-button:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .campaign-nav .nav-button.active {
+  background: var(--arcana-blue-soft) !important;
+}
+
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .page-content,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .page-content.active,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .demo-module-form,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .combat-add-form,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .combat-creature-form,
+:root:not([data-theme="dark"]) body:has(.campaign-manager) .combat-card {
+  border-radius: 0 !important;
+}
