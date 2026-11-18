@@ -138,6 +138,98 @@ document.addEventListener("DOMContentLoaded", () => {
     renderItems();
   });
 
+
+  // Gerenciador demonstrativo de combates e criaturas personalizadas.
+  const combatSection = document.getElementById("combats");
+  const creatureKey = "arcana_custom_creatures";
+  const encounterKey = "arcana_combat_encounters";
+  const standardCreatures = [
+    {id:"ratos",nome:"Ratos",vida:15,defesa:13},
+    {id:"abelhas",nome:"Enxame de Abelhas",vida:10,defesa:15},
+    {id:"noxlith",nome:"Noxlith",vida:90,defesa:20},
+    {id:"serafim",nome:"Serafim Decaído",vida:120,defesa:22}
+  ];
+  const readLocal = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); } catch { return fallback; } };
+  const customCreatures = () => readLocal(creatureKey, []);
+  const allCreatures = () => standardCreatures.concat(customCreatures()).sort((a,b) => a.nome.localeCompare(b.nome,"pt-BR"));
+  const allEncounters = readLocal(encounterKey, {});
+  let encounters = allEncounters[campaignId] || [];
+  const saveEncounters = () => { allEncounters[campaignId] = encounters; localStorage.setItem(encounterKey, JSON.stringify(allEncounters)); };
+  const makeElement = (tag, text, className) => { const node=document.createElement(tag); if(text !== undefined) node.textContent=text; if(className) node.className=className; return node; };
+
+  function renderCombatManager() {
+    combatSection.replaceChildren();
+    combatSection.append(makeElement("h2","Combates — " + campaign.name));
+    combatSection.append(makeElement("p","Crie encontros e adicione criaturas do catálogo ou cadastre uma nova sem sair desta página."));
+    const create = document.createElement("form");
+    create.className = "demo-module-form";
+    create.innerHTML = '<label>Nome do combate<input name="name" required placeholder="Ex.: Emboscada na floresta"></label><label>Observações<textarea name="notes" placeholder="Anotações do mestre"></textarea></label><button type="submit">Criar combate</button>';
+    combatSection.append(create);
+    const list = makeElement("div",undefined,"combat-encounters");
+    combatSection.append(list);
+    create.addEventListener("submit", event => {
+      event.preventDefault();
+      const data = new FormData(create);
+      encounters.push({id:"enc-" + Date.now(),name:String(data.get("name")).trim(),notes:String(data.get("notes")).trim(),creatures:[]});
+      saveEncounters(); renderCombatManager();
+    });
+    if (!encounters.length) list.append(makeElement("p","Nenhum combate criado nesta campanha ainda."));
+    encounters.forEach(encounter => {
+      const card = makeElement("article",undefined,"combat-card");
+      card.append(makeElement("h3",encounter.name),makeElement("p",encounter.notes || "Sem observações."));
+      const addExisting = document.createElement("form");
+      addExisting.className = "combat-add-form";
+      const select = document.createElement("select");
+      select.required = true;
+      const placeholder = makeElement("option","Escolha uma criatura..."); placeholder.value = ""; select.append(placeholder);
+      allCreatures().forEach(creature => { const option=makeElement("option",creature.nome + " (PV " + creature.vida + ")"); option.value=creature.id; select.append(option); });
+      const selectLabel=makeElement("label","Criatura existente"); selectLabel.append(select);
+      const addButton=makeElement("button","Adicionar ao combate"); addButton.type="submit";
+      addExisting.append(selectLabel,addButton);
+      addExisting.addEventListener("submit",event => {
+        event.preventDefault();
+        const creature=allCreatures().find(item => item.id===select.value);
+        if(!creature) return;
+        encounter.creatures.push({id:"instance-"+Date.now(),creatureId:creature.id,nome:creature.nome,vidaMaxima:Number(creature.vida)||1,vidaAtual:Number(creature.vida)||1,defesa:Number(creature.defesa)||0});
+        saveEncounters(); renderCombatManager();
+      });
+      const newButton=makeElement("button","＋ Criar nova criatura","secondary-button"); newButton.type="button";
+      const newForm=document.createElement("form"); newForm.className="combat-creature-form hidden";
+      newForm.innerHTML='<h4>Nova criatura</h4><label>Nome<input name="nome" required maxlength="60"></label><div class="combat-form-grid"><label>Tipo<input name="tipo" value="Criatura" maxlength="40"></label><label>Tamanho<select name="tamanho"><option>Minúsculo</option><option>Pequeno</option><option selected>Médio</option><option>Grande</option><option>Enorme</option><option>Colossal</option></select></label><label>VD<input name="vd" type="number" min="0" value="10" required></label><label>Pontos de vida<input name="vida" type="number" min="1" value="20" required></label><label>Defesa<input name="defesa" type="number" min="0" value="10" required></label></div><label>Descrição<textarea name="descricao" maxlength="1000"></textarea></label><label>Ataques e habilidades<textarea name="habilidades" maxlength="1200" placeholder="Uma habilidade por linha. Ex.: Mordida: causa 1d6 de dano."></textarea></label><button type="submit">Salvar criatura e adicionar</button>';
+      newButton.addEventListener("click",()=>newForm.classList.toggle("hidden"));
+      newForm.addEventListener("submit",event=>{
+        event.preventDefault();
+        const data=new FormData(newForm);
+        const creature={
+          id:"custom-"+Date.now(),nome:String(data.get("nome")).trim(),tipo:String(data.get("tipo")||"Criatura").trim(),
+          tamanho:String(data.get("tamanho")||"Médio"),vd:Math.max(0,Number(data.get("vd"))||0),
+          vida:Math.max(1,Number(data.get("vida"))||1),defesa:Math.max(0,Number(data.get("defesa"))||0),
+          grupo:"personalizada",imagem:"",atributos:[0,0,0,0,0],deslocamento:[],pericias:[],sentidos:[],
+          combate:String(data.get("habilidades")||"").split(String.fromCharCode(10)).map(line=>line.trim()).filter(Boolean).map((line,i)=>{
+            const pos=line.indexOf(":"); return pos<0?{nome:"Habilidade "+(i+1),descricao:line}:{nome:line.slice(0,pos).trim(),descricao:line.slice(pos+1).trim()};
+          }),descricao:String(data.get("descricao")||"").trim(),personalizada:true
+        };
+        const saved=customCreatures(); saved.push(creature); localStorage.setItem(creatureKey,JSON.stringify(saved));
+        encounter.creatures.push({id:"instance-"+Date.now(),creatureId:creature.id,nome:creature.nome,vidaMaxima:creature.vida,vidaAtual:creature.vida,defesa:creature.defesa});
+        saveEncounters(); renderCombatManager();
+      });
+      card.append(addExisting,newButton,newForm);
+      const creatureList=makeElement("ul",undefined,"combat-creature-list");
+      if(!encounter.creatures.length) creatureList.append(makeElement("li","Nenhuma criatura neste combate."));
+      encounter.creatures.forEach((instance,index)=>{
+        const row=makeElement("li",instance.nome+" — PV: "+instance.vidaAtual+"/"+instance.vidaMaxima+" — Defesa: "+instance.defesa);
+        const down=makeElement("button","− PV"); down.type="button"; down.addEventListener("click",()=>{instance.vidaAtual=Math.max(0,instance.vidaAtual-1);saveEncounters();renderCombatManager();});
+        const up=makeElement("button","+ PV"); up.type="button"; up.addEventListener("click",()=>{instance.vidaAtual=Math.min(instance.vidaMaxima,instance.vidaAtual+1);saveEncounters();renderCombatManager();});
+        const remove=makeElement("button","Remover"); remove.type="button"; remove.addEventListener("click",()=>{encounter.creatures.splice(index,1);saveEncounters();renderCombatManager();});
+        row.append(" ",down," ",up," ",remove); creatureList.append(row);
+      });
+      const deleteButton=makeElement("button","Excluir combate","danger-button"); deleteButton.type="button";
+      deleteButton.addEventListener("click",()=>{if(confirm("Excluir este combate?")){encounters=encounters.filter(item=>item.id!==encounter.id);saveEncounters();renderCombatManager();}});
+      card.append(creatureList,deleteButton); list.append(card);
+    });
+  }
+  renderCombatManager();
+
   const overview = document.getElementById("overview");
   overview.innerHTML = "";
   const overviewTitle = document.createElement("h2");
