@@ -547,3 +547,46 @@ nav[aria-label="Navegação principal"] .perfil-avatar {
   color: #fff !important;
 }
 :root[data-theme="dark"] #arcana-theme-toggle { background: #555fc0 !important; }
+
+
+/* Controle flutuante de tema — visível e acessível em todas as páginas. */
+#arcana-theme-toggle {
+  position: fixed !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  z-index: 2147483647 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  min-height: 52px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px solid var(--arcana-border-strong) !important;
+  border-radius: 50% !important;
+  background: var(--arcana-blue) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(38, 39, 99, .25) !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+}
+#arcana-theme-toggle:hover {
+  background: var(--arcana-blue-hover) !important;
+  transform: translateY(-2px);
+}
+#arcana-theme-toggle:focus-visible {
+  outline: 3px solid var(--arcana-focus) !important;
+  outline-offset: 4px;
+}
+@media (max-width: 600px) {
+  #arcana-theme-toggle {
+    right: 14px !important;
+    bottom: 14px !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+}
