@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const rename = document.createElement("button");
       rename.type = "button";
       rename.textContent = "Editar";
+      rename.className = "acao-editar";
       rename.addEventListener("click", async () => {
         const next = await ArcanaModal.prompt("Digite o novo nome para esta campanha.", campaign.name, "Renomear campanha");
         if (next === null) return;
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const remove = document.createElement("button");
       remove.type = "button";
       remove.textContent = "Excluir";
+      remove.className = "acao-excluir";
       remove.addEventListener("click", async () => {
         const confirmed = await ArcanaModal.confirm(
           "Esta ação não poderá ser desfeita. Deseja realmente excluir esta campanha e seus dados demonstrativos?",
