@@ -4,8 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const STORAGE_KEY = "arcana_campaigns";
   const list = document.getElementById("campaign-list");
+  const example = document.getElementById("campaign-example");
   const form = document.getElementById("campaign-form");
   const message = document.getElementById("campaign-message");
+  const add = document.querySelector(".adicionar-campanha");
+  const newCampaign = document.getElementById("new-campaign");
+
+  add.addEventListener("click", () => {
+    newCampaign.hidden = !newCampaign.hidden;
+    add.setAttribute("aria-expanded", String(!newCampaign.hidden));
+    if (!newCampaign.hidden) form.elements.name.focus();
+  });
 
   const read = () => {
     try {
@@ -17,13 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function render() {
     const campaigns = read().filter(item => item.ownerId === session.userId);
+    example.hidden = campaigns.length > 0;
     list.replaceChildren();
-    if (!campaigns.length) {
-      const empty = document.createElement("p");
-      empty.textContent = "Você ainda não criou campanhas. Use o formulário acima para começar.";
-      list.append(empty);
-      return;
-    }
     campaigns.forEach(campaign => {
       const card = document.createElement("article");
       card.className = "campanha-card";
@@ -56,7 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
         write(read().filter(item => item.id !== campaign.id));
         render();
       });
-      card.append(title, description, open, rename, remove);
+      const actions = document.createElement("footer");
+      actions.className = "campanha-acoes";
+      actions.append(open, rename, remove);
+      card.append(title, description, actions);
       list.append(card);
     });
   }
@@ -79,6 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     write(campaigns);
     form.reset();
+    newCampaign.hidden = true;
+    add.setAttribute("aria-expanded", "false");
+    add.focus();
     message.textContent = "Campanha criada e salva neste navegador.";
     render();
   });

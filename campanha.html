@@ -21,7 +21,23 @@
 
   <main>
     <header><h1>Minhas campanhas</h1><p>Crie e organize suas aventuras.</p></header>
-    <section aria-labelledby="new-campaign-title">
+    <section aria-labelledby="campaign-list-title">
+      <h2 id="campaign-list-title">Campanhas cadastradas</h2>
+      <div class="campanhas-container">
+        <article class="campanha-card campanha-demonstrativa" id="campaign-example" hidden>
+          <h3>Campanha 1</h3>
+          <p>Descrição da campanha 1.</p>
+          <footer class="campanha-acoes">Campanha de exemplo</footer>
+        </article>
+        <div id="campaign-list"></div>
+        <button class="adicionar-campanha" type="button" aria-controls="new-campaign" aria-expanded="false">
+          <span class="adicionar-icone" aria-hidden="true">+</span>
+          <span>Adicionar<br>Campanha</span>
+        </button>
+      </div>
+      <p id="campaign-message" role="status" aria-live="polite"></p>
+    </section>
+    <section id="new-campaign" aria-labelledby="new-campaign-title" hidden>
       <h2 id="new-campaign-title">Criar campanha</h2>
       <form id="campaign-form">
         <label for="campaign-name">Nome da campanha</label>
@@ -30,11 +46,6 @@
         <textarea id="campaign-description" name="description" maxlength="500"></textarea>
         <button type="submit">Criar campanha</button>
       </form>
-      <p id="campaign-message" role="status" aria-live="polite"></p>
-    </section>
-    <section aria-labelledby="campaign-list-title">
-      <h2 id="campaign-list-title">Campanhas cadastradas</h2>
-      <div class="campanhas-container" id="campaign-list"></div>
     </section>
   </main>
 </body>

@@ -5,15 +5,51 @@
 }
 
 body {
+    --panel: #e7e7eb;
+    --ink: #25252a;
+    --muted: #595960;
+    --line: #ccccd3;
+    --accent-dark: #36363e;
+    --accent-light: #d5d5dd;
     font-family: Arial, sans-serif;
-    color: #222;
-    background: #fff;
+    color: var(--ink);
+    background: radial-gradient(ellipse at top, #3d3d45, #232329 70%);
+    min-height: 100vh;
     line-height: 1.5;
 }
 
 .container {
-    width: min(1200px, 92%);
+    width: min(1080px, 92%);
     margin: 35px auto;
+}
+
+.content-area {
+    padding: clamp(16px, 4vw, 36px);
+    border: 1px solid #ffffff14;
+    border-radius: 12px;
+    background: var(--panel);
+    box-shadow: 0 8px 24px #15151a60;
+}
+
+.campaign-header h1,
+.page-content h2,
+.combat-card h3 {
+    font-family: Georgia, serif;
+    line-height: 1.2;
+    color: var(--accent-dark);
+    overflow-wrap: anywhere;
+}
+
+.campaign-header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.65rem);
+    color: inherit;
+}
+
+.campaign-header a {
+    width: fit-content;
+    color: inherit;
+    font-size: 14px;
+    text-underline-offset: 3px;
 }
 
 /* Informações da campanha */
@@ -22,7 +58,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-    padding-bottom: 25px;
+    color: #eeeef2;
 }
 
 .campaign-field {
@@ -38,19 +74,13 @@ body {
 .campaign-field input,
 .campaign-field textarea {
     width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
     padding: 10px 12px;
     font: inherit;
     font-size: 14px;
-    background: #fff;
-    color: #222;
-    outline: none;
-}
-
-.campaign-field input:focus,
-.campaign-field textarea:focus {
-    border-color: #555;
+    background: #f6f6f8;
+    color: var(--ink);
 }
 
 .campaign-field textarea {
@@ -65,60 +95,65 @@ body {
 
 .save-button {
     padding: 8px 18px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    background: #fff;
-    color: #222;
+    border: 1px solid var(--accent-light);
+    border-radius: 6px;
+    background: var(--accent-light);
+    color: var(--ink);
     cursor: pointer;
     font-size: 13px;
 }
 
 .save-button:hover {
-    border-color: #222;
+    background: var(--panel);
 }
 
 /* Navegação da campanha */
 
 .campaign-nav {
-    display: flex;
-    gap: 5px;
-    overflow-x: auto;
-    border-bottom: 1px solid #ccc;
-    scrollbar-width: thin;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(145px, 100%), 1fr));
+    gap: clamp(10px, 1.5vw, 16px);
+    margin: 24px 0;
 }
 
 .nav-button {
-    flex-shrink: 0;
+    min-height: 48px;
     padding: 12px 14px;
-    border: none;
-    border-bottom: 2px solid transparent;
-    background: transparent;
-    color: #555;
+    border: 1px solid #ffffff14;
+    border-radius: 6px;
+    background: #33333b;
+    color: #eeeef2;
     font-size: 13px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
     cursor: pointer;
-    white-space: nowrap;
 }
 
 .nav-button:hover {
-    color: #111;
+    background: #45454e;
 }
 
 .nav-button.active {
-    color: #111;
-    border-bottom-color: #222;
+    color: var(--ink);
+    background: var(--accent-light);
+    border-color: var(--accent-light);
     font-weight: 600;
 }
 
-.nav-button:focus-visible,
-.save-button:focus-visible {
-    outline: 2px solid #222;
+:is(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid var(--accent-dark);
     outline-offset: 3px;
+}
+
+.nav-button:focus-visible,
+.campaign-header :focus-visible {
+    outline-color: var(--accent-light);
 }
 
 /* Conteúdo */
 
 .content-area {
-    padding-top: 28px;
+    min-height: 160px;
 }
 
 .page-content {
@@ -130,13 +165,13 @@ body {
 }
 
 .page-content h2 {
-    font-size: 20px;
+    font-size: clamp(1.4rem, 4vw, 1.85rem);
     font-weight: 600;
     margin-bottom: 12px;
 }
 
 .page-content p {
-    color: #666;
+    color: var(--muted);
     font-size: 14px;
 }
 
@@ -144,14 +179,6 @@ body {
     .container {
         width: 94%;
         margin: 20px auto;
-    }
-
-    .campaign-nav {
-        gap: 0;
-    }
-
-    .nav-button {
-        padding: 11px 12px;
     }
 
     .campaign-actions {
@@ -189,10 +216,10 @@ body {
 .combat-creature-form textarea {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--line);
     border-radius: 5px;
-    background: #fff;
-    color: #222;
+    background: #f6f6f8;
+    color: var(--ink);
     font: inherit;
 }
 .demo-module-form textarea,
@@ -206,10 +233,10 @@ body {
 .combat-card button {
     width: fit-content;
     padding: 8px 13px;
-    border: 1px solid #aaa;
+    border: 1px solid var(--line);
     border-radius: 5px;
-    background: #fff;
-    color: #222;
+    background: #f6f6f8;
+    color: var(--accent-dark);
     cursor: pointer;
 }
 .combat-encounters {
@@ -219,9 +246,9 @@ body {
 }
 .combat-card {
     padding: 18px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--line);
     border-radius: 8px;
-    background: #fafafa;
+    background: #dcdce1;
 }
 .combat-card h3 {
     margin-bottom: 8px;
@@ -236,13 +263,20 @@ body {
 }
 .combat-add-form label {
     flex: 1;
-    min-width: 220px;
+    min-width: min(220px, 100%);
 }
 .combat-creature-form {
     padding: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--line);
     border-radius: 7px;
-    background: #fff;
+    background: var(--panel);
+}
+.combat-creature-form.hidden {
+    display: none;
+}
+.demo-module-form + ul {
+    padding-left: 20px;
+    overflow-wrap: anywhere;
 }
 .combat-form-grid {
     display: grid;
