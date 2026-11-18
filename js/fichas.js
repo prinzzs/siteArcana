@@ -259,18 +259,15 @@ function renderizarEntidades() {
         const card = document.createElement("article");
         card.className = "entity-card";
 
-        // Área de imagem exclusiva do card; permanece reservada mesmo sem foto.
+        // Mantém a criação original da imagem e apenas reserva seu espaço no card.
         const areaImagem = document.createElement("div");
         areaImagem.className = "entity-image-slot";
 
-        if (entidade.imagem) {
-            const imagem = document.createElement("img");
-            imagem.src = entidade.imagem;
-            imagem.alt = entidade.nome;
-            imagem.loading = "lazy";
-            imagem.onerror = () => imagem.remove();
-            areaImagem.appendChild(imagem);
-        }
+        const imagem = document.createElement("img");
+        imagem.src = entidade.imagem;
+        imagem.alt = entidade.nome;
+        imagem.onerror = () => imagem.style.display = "none";
+        if (entidade.imagem) areaImagem.appendChild(imagem);
 
         const conteudo = document.createElement("div");
         conteudo.className = "card-content";
