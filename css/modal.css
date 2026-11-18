@@ -1,0 +1,123 @@
+.arcana-modal {
+  width: min(440px, calc(100% - 32px));
+  max-width: 440px;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #fff;
+  color: #263247;
+  box-shadow: 0 24px 80px rgba(20, 32, 52, .24);
+  overflow: hidden;
+}
+
+.arcana-modal::backdrop {
+  background: rgba(18, 27, 43, .48);
+  backdrop-filter: blur(4px);
+}
+
+.arcana-modal-panel {
+  display: grid;
+  justify-items: start;
+  gap: 13px;
+  padding: 28px;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.arcana-modal-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 14px;
+  background: #eaf2fb;
+  color: #356b9e;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.arcana-modal-icon.is-warning {
+  background: #fff3e8;
+  color: #b96a28;
+}
+
+.arcana-modal-icon.is-edit {
+  background: #f0edfb;
+  color: #7055a8;
+}
+
+.arcana-modal-panel h2 {
+  margin: 2px 0 0;
+  color: #202d40;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.arcana-modal-message {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.arcana-modal-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #263247;
+  font: inherit;
+  outline: none;
+}
+
+.arcana-modal-input:focus {
+  border-color: #477eae;
+  box-shadow: 0 0 0 3px rgba(71, 126, 174, .15);
+}
+
+.arcana-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 9px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.arcana-modal-actions button {
+  min-height: 40px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  font: 600 13px Inter, Arial, sans-serif;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+}
+
+.arcana-modal-actions button:hover {
+  transform: translateY(-1px);
+}
+
+.arcana-modal-cancel {
+  border: 1px solid #dbe2ea;
+  background: #fff;
+  color: #526176;
+}
+
+.arcana-modal-accept {
+  border: 1px solid #356b9e;
+  background: #356b9e;
+  color: #fff;
+}
+
+.arcana-modal-accept.is-danger {
+  border-color: #b84d55;
+  background: #b84d55;
+}
+
+@media (max-width: 480px) {
+  .arcana-modal-panel { padding: 23px 20px; }
+  .arcana-modal-actions { flex-direction: column-reverse; }
+  .arcana-modal-actions button { width: 100%; }
+}
