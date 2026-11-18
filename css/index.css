@@ -1,8 +1,13 @@
 .home-login-link {
-  position:absolute;
+  position: absolute;
   top: 20px;
   right: 20px;
   z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  text-decoration: none;
 }
 
 .container-cima {
