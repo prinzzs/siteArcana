@@ -496,3 +496,12 @@ body {
     width: 100%;
   }
 }
+
+.campaign-description-display:empty::before {
+  content: attr(data-placeholder);
+  color: var(--arcana-text-muted);
+}
+
+.campaign-description-display:empty:not([contenteditable="true"]) {
+  cursor: text;
+}
