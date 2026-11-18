@@ -1,3 +1,8 @@
+// Exige uma sessão local para acessar o catálogo de fichas.
+if (!window.ArcanaAuth?.requireAuth()) {
+  throw new Error("Acesso restrito: faça login para continuar.");
+}
+
 const entidades = [
 
     {
