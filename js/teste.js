@@ -46,8 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderCampaignHeading() {
+    descriptionDisplay.dataset.placeholder = "Adicione uma descrição à campanha";
     nameDisplay.textContent = campaign.name || "Campanha sem nome";
-    descriptionDisplay.textContent = campaign.description || "Adicionar uma descrição à campanha...";
+    descriptionDisplay.textContent = campaign.description || "";
     nameDisplay.contentEditable = "false";
     descriptionDisplay.contentEditable = "false";
     nameDisplay.classList.remove("is-editing");
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function cancelCampaignEdit() {
     nameDisplay.textContent = originalName || "Campanha sem nome";
-    descriptionDisplay.textContent = originalDescription || "Adicionar uma descrição à campanha...";
+    descriptionDisplay.textContent = originalDescription || "";
     renderCampaignHeading();
     saveStatus.textContent = "Edição cancelada.";
   }
