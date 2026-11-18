@@ -759,3 +759,71 @@ body:has(.campaign-manager) .campaign-back-link:hover {
   outline: 2px solid var(--arcana-focus) !important;
   outline-offset: 2px !important;
 }
+
+/* Padronização final da navegação: geometria e estados idênticos nos dois temas. */
+body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button,
+body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:hover,
+body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:focus,
+body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:active {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  width: 100% !important;
+  min-height: 42px !important;
+  padding: 9px 11px !important;
+  border: 0 !important;
+  border-left: 3px solid transparent !important;
+  border-radius: 7px !important;
+  background: transparent !important;
+  background-image: none !important;
+  color: var(--arcana-text-secondary) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  font-size: 12px !important;
+  font-weight: 550 !important;
+  text-align: left !important;
+  transition: background .18s ease, border-color .18s ease, color .18s ease !important;
+}
+
+body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button .nav-icon {
+  display: inline-grid !important;
+  flex: 0 0 22px !important;
+  width: 22px !important;
+  height: 22px !important;
+  place-items: center !important;
+  border-radius: 5px !important;
+  background: transparent !important;
+  color: inherit !important;
+}
+
+body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:hover {
+  border-left-color: var(--arcana-border-strong) !important;
+  background: rgba(120, 130, 180, .10) !important;
+  color: var(--arcana-text) !important;
+}
+
+body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button.active,
+body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button.active:hover {
+  border-left-color: var(--arcana-blue) !important;
+  background: rgba(112, 125, 230, .18) !important;
+  color: var(--arcana-blue) !important;
+  font-weight: 700 !important;
+}
+
+body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:focus-visible {
+  outline: 2px solid var(--arcana-focus) !important;
+  outline-offset: 2px !important;
+}
+
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:hover {
+  background: rgba(145, 155, 230, .10) !important;
+}
+
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button.active,
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button.active:hover {
+  background: rgba(112, 125, 230, .20) !important;
+  color: #aab2ff !important;
+}
