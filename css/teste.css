@@ -711,3 +711,51 @@ body:has(.campaign-manager) .campaign-back-link:hover {
   outline: 2px solid var(--arcana-focus) !important;
   outline-offset: 2px !important;
 }
+
+/* Navegação lateral no modo escuro: mesmo acabamento do modo claro,
+   com contraste adaptado à paleta escura. */
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button,
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:hover,
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:focus,
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:active {
+  display: flex !important;
+  width: 100% !important;
+  min-height: 42px !important;
+  padding: 9px 11px !important;
+  border: 0 !important;
+  border-left: 3px solid transparent !important;
+  border-radius: 7px !important;
+  background: transparent !important;
+  background-image: none !important;
+  color: var(--arcana-text-secondary, #b8bfd8) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  font-weight: 550 !important;
+  text-align: left !important;
+}
+
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button .nav-icon {
+  color: inherit !important;
+  background: transparent !important;
+}
+
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:hover {
+  border-left-color: var(--arcana-border-strong, #555b7d) !important;
+  background: rgba(145, 155, 230, .10) !important;
+  color: var(--arcana-text, #f0f1ff) !important;
+}
+
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button.active,
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button.active:hover {
+  border-left-color: var(--arcana-blue, #8792ff) !important;
+  background: rgba(112, 125, 230, .20) !important;
+  color: var(--arcana-blue, #aab2ff) !important;
+  font-weight: 700 !important;
+}
+
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-sidebar .campaign-nav .nav-button:focus-visible {
+  outline: 2px solid var(--arcana-focus) !important;
+  outline-offset: 2px !important;
+}
