@@ -121,3 +121,36 @@
   .arcana-modal-actions { flex-direction: column-reverse; }
   .arcana-modal-actions button { width: 100%; }
 }
+
+/* Modais seguem os mesmos tokens de cor do restante do Arcana. */
+.modal,
+.modal-dialog,
+.custom-modal {
+  color: var(--arcana-text, #202b3c);
+  background: var(--arcana-surface, #fff);
+  border-color: var(--arcana-border, #e2e8f0);
+}
+
+.modal-backdrop,
+.custom-modal-backdrop {
+  background: rgba(24, 39, 58, .48);
+}
+
+.modal :where(h1, h2, h3, p),
+.custom-modal :where(h1, h2, h3, p) {
+  color: var(--arcana-text, #202b3c);
+}
+
+.modal :where(input, textarea, select),
+.custom-modal :where(input, textarea, select) {
+  color: var(--arcana-text, #202b3c);
+  background: var(--arcana-surface, #fff);
+  border-color: var(--arcana-border-strong, #cbd5e1);
+}
+
+.modal :where(.modal-primary, .confirm-button),
+.custom-modal :where(.modal-primary, .confirm-button) {
+  color: #fff;
+  background: var(--arcana-blue, #376b9b);
+  border-color: var(--arcana-blue, #376b9b);
+}
