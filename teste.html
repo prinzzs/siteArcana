@@ -19,73 +19,48 @@
 
             <a href="campanha.html">← Voltar às campanhas</a>
 
-            <div class="campaign-field">
-                <label for="campaign-name">Nome da campanha</label>
-                <input
-                    type="text"
-                    id="campaign-name"
-                    placeholder="Digite o nome da campanha"
-                >
+            <div class="campaign-heading">
+                <h1 id="campaign-name-display" class="campaign-name-display" tabindex="0" aria-label="Nome da campanha. Clique para editar."></h1>
+                <p id="campaign-description-display" class="campaign-description-display" tabindex="0" aria-label="Descrição da campanha. Clique para editar."></p>
+                <span class="campaign-edit-hint">Clique no nome ou na descrição para editar</span>
             </div>
 
-            <div class="campaign-field">
-                <label for="campaign-description">Descrição da campanha</label>
-                <textarea
-                    id="campaign-description"
-                    placeholder="Escreva uma descrição para sua campanha..."
-                ></textarea>
+            <div class="campaign-actions" id="campaign-actions" hidden>
+                <button class="save-button" id="save-campaign" type="button">Salvar alterações</button>
+                <button class="cancel-edit-button" id="cancel-campaign-edit" type="button">Cancelar</button>
             </div>
-
-            <div class="campaign-actions">
-                <button class="save-button" id="save-campaign">
-                    Salvar alterações
-                </button>
-            </div>
+            <p class="campaign-save-status" id="campaign-save-status" role="status" aria-live="polite"></p>
 
         </section>
 
         <nav class="campaign-nav" aria-label="Navegação da campanha">
+            <section class="campaign-nav-group" aria-labelledby="nav-planning-title">
+                <h2 id="nav-planning-title">Campanha</h2>
+                <div class="campaign-nav-items">
+                    <button class="nav-button active" data-page="overview" aria-current="page">Visão geral</button>
+                    <button class="nav-button" data-page="players">Jogadores e personagens</button>
+                    <button class="nav-button" data-page="missions">Missões</button>
+                    <button class="nav-button" data-page="diary">Diário de sessões</button>
+                </div>
+            </section>
 
-            <button class="nav-button active" data-page="overview" aria-current="page">
-                Visão geral da campanha
-            </button>
+            <section class="campaign-nav-group" aria-labelledby="nav-world-title">
+                <h2 id="nav-world-title">Mundo</h2>
+                <div class="campaign-nav-items">
+                    <button class="nav-button" data-page="agents">Agentes</button>
+                    <button class="nav-button" data-page="npcs">Galeria de NPCs</button>
+                    <button class="nav-button" data-page="clues">Banco de pistas</button>
+                    <button class="nav-button" data-page="inventory">Inventário e recompensas</button>
+                </div>
+            </section>
 
-            <button class="nav-button" data-page="players">
-                Jogadores e personagens
-            </button>
-
-            <button class="nav-button" data-page="agents">
-                Agentes
-            </button>
-
-            <button class="nav-button" data-page="combats">
-                Combates
-            </button>
-
-            <button class="nav-button" data-page="diary">
-                Diário de sessões
-            </button>
-
-            <button class="nav-button" data-page="missions">
-                Missões
-            </button>
-
-            <button class="nav-button" data-page="clues">
-                Banco de pistas
-            </button>
-
-            <button class="nav-button" data-page="notes">
-                Anotações do mestre
-            </button>
-
-            <button class="nav-button" data-page="npcs">
-                Galeria de NPCs
-            </button>
-
-            <button class="nav-button" data-page="inventory">
-                Inventário e recompensas
-            </button>
-
+            <section class="campaign-nav-group" aria-labelledby="nav-master-title">
+                <h2 id="nav-master-title">Ferramentas do mestre</h2>
+                <div class="campaign-nav-items">
+                    <button class="nav-button" data-page="combats">Combates</button>
+                    <button class="nav-button" data-page="notes">Anotações do mestre</button>
+                </div>
+            </section>
         </nav>
 
         <section class="content-area" aria-live="polite">
