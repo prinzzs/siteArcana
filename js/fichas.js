@@ -259,15 +259,10 @@ function renderizarEntidades() {
         const card = document.createElement("article");
         card.className = "entity-card";
 
-        // Mantém a criação original da imagem e apenas reserva seu espaço no card.
-        const areaImagem = document.createElement("div");
-        areaImagem.className = "entity-image-slot";
-
         const imagem = document.createElement("img");
         imagem.src = entidade.imagem;
         imagem.alt = entidade.nome;
         imagem.onerror = () => imagem.style.display = "none";
-        if (entidade.imagem) areaImagem.appendChild(imagem);
 
         const conteudo = document.createElement("div");
         conteudo.className = "card-content";
@@ -286,7 +281,7 @@ function renderizarEntidades() {
         categoria.textContent = grupoNome;
 
         conteudo.append(titulo, vd, tipo, categoria);
-        card.append(areaImagem, conteudo);
+        card.append(imagem, conteudo);
 
         card.addEventListener("click", () => {
             abrirFicha(entidade.id);
