@@ -51,11 +51,75 @@
   justify-content: center;
 }
 
+/* Rodapé: informações à esquerda e mapa à direita. */
+.footer {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.6fr);
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 28px clamp(16px, 3vw, 36px) 16px;
+}
+
+.footer-localizacao {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
+  padding: 24px;
+}
+
+.footer-localizacao h2,
+.footer-localizacao p {
+  text-align: right;
+}
+
+.footer > #map {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.footer > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: right;
+}
+
 #map {
   width: 100%;
   max-width: 100%;
   height: 500px;
   border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 22px 15px 14px;
+  }
+
+  .footer-localizacao {
+    grid-column: 1;
+    grid-row: auto;
+    text-align: right;
+    padding: 18px;
+  }
+
+  .footer-localizacao h2,
+  .footer-localizacao p {
+    text-align: right;
+  }
+
+  .footer > #map {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .footer > p {
+    grid-column: 1;
+    text-align: right;
+  }
 }
 
 @media (max-width: 1024px) {
