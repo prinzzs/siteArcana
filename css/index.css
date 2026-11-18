@@ -236,3 +236,22 @@
     background-position: center;
   }
 }
+
+
+/* Destaque tipográfico da palavra "jornada" na primeira dobra. */
+.container-cima .title span {
+  display: inline-block;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: .025em;
+  line-height: 1.12;
+  color: #dce0ff;
+  text-shadow:
+    0 2px 4px rgba(24, 20, 65, .38),
+    0 0 22px rgba(160, 174, 255, .22);
+}
+@media (max-width: 600px) {
+  .container-cima .title span {
+    letter-spacing: .01em;
+  }
+}
