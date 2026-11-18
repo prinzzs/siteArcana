@@ -1092,7 +1092,7 @@ nav[aria-label="Navegação principal"] .perfil-sair:hover {
 }
 
 :root[data-theme="dark"] .entity-card .card-content {
-  background: #30445f !important;
+  background: #252343 !important;
   color: #e5e6ff !important;
 }
 
