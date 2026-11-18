@@ -590,3 +590,81 @@ nav[aria-label="Navegação principal"] .perfil-avatar {
     min-height: 48px !important;
   }
 }
+
+
+/* ==========================================================
+   Botões — índigo luminoso com contraste e profundidade
+   ========================================================== */
+:root {
+  --arcana-button: #505bc9;
+  --arcana-button-hover: #414caf;
+  --arcana-button-active: #353f98;
+  --arcana-button-shadow: rgba(53, 63, 152, .30);
+}
+:root[data-theme="dark"] {
+  --arcana-button: #5967dc;
+  --arcana-button-hover: #6d7af0;
+  --arcana-button-active: #4654c2;
+  --arcana-button-shadow: rgba(10, 12, 48, .42);
+}
+
+/* Ações principais: mesma cor nos dois temas, com contraste consistente. */
+:where(
+  button:not(.secondary-button):not(.danger-button),
+  .button,
+  .button-button,
+  .save-button,
+  .roll-button,
+  .home-login-link,
+  .container-button-cadastro a.button,
+  #campaign-form button,
+  .container-login button,
+  .parte-central button
+) {
+  background: linear-gradient(135deg, var(--arcana-button), var(--arcana-button-hover)) !important;
+  border: 1px solid var(--arcana-button) !important;
+  color: #fff !important;
+  box-shadow: 0 5px 14px var(--arcana-button-shadow), inset 0 1px 0 rgba(255,255,255,.16) !important;
+  text-shadow: 0 1px 1px rgba(24, 25, 70, .16);
+}
+:where(
+  button:not(.secondary-button):not(.danger-button),
+  .button,
+  .button-button,
+  .save-button,
+  .roll-button,
+  .home-login-link,
+  .container-button-cadastro a.button,
+  #campaign-form button,
+  .container-login button,
+  .parte-central button
+):hover {
+  background: linear-gradient(135deg, var(--arcana-button-hover), var(--arcana-button)) !important;
+  border-color: var(--arcana-button-hover) !important;
+  box-shadow: 0 8px 20px var(--arcana-button-shadow), inset 0 1px 0 rgba(255,255,255,.2) !important;
+  filter: brightness(1.06);
+}
+:where(
+  button:not(.secondary-button):not(.danger-button),
+  .button,
+  .button-button,
+  .save-button,
+  .roll-button
+):active {
+  background: var(--arcana-button-active) !important;
+  transform: translateY(0) scale(.985);
+}
+:where(button:disabled) {
+  filter: saturate(.55);
+  box-shadow: none !important;
+}
+
+/* Botão de tema acompanha o índigo, mantendo seu formato circular. */
+#arcana-theme-toggle {
+  background: linear-gradient(135deg, var(--arcana-button), var(--arcana-button-hover)) !important;
+  border-color: rgba(255,255,255,.24) !important;
+  box-shadow: 0 8px 22px var(--arcana-button-shadow) !important;
+}
+#arcana-theme-toggle:hover {
+  filter: brightness(1.08);
+}
