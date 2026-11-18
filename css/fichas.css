@@ -479,3 +479,90 @@ nav ul li a.active {
         padding: 4px;
     }
 }
+
+
+/* Ajustes pontuais da ficha: controles centralizados e retorno compacto. */
+.hp-bar {
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.hp-bar button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 36px;
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    min-height: 36px;
+    padding: 0;
+    line-height: 1;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    margin-bottom: 16px;
+    padding: 7px 13px;
+    border: 1px solid #555fc0;
+    border-radius: 7px;
+    background: #555fc0;
+    color: #fff !important;
+    font-size: 13px;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background .2s, border-color .2s, transform .2s;
+}
+
+.back-button:hover {
+    background: #464fa8;
+    border-color: #464fa8;
+    color: #fff !important;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* Mantém os cards alinhados e evita que títulos longos escondam a categoria. */
+.entity-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    align-items: stretch;
+}
+
+.entity-card {
+    min-width: 0;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.card-content h2 {
+    font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.category {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+@media (max-width: 600px) {
+    .entity-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .entity-card {
+        width: 100%;
+    }
+
+    .card-content {
+        padding: 18px;
+    }
+}
