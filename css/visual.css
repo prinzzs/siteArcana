@@ -1,0 +1,62 @@
+/* Arcana — identidade visual unificada: minimalista, branco/grafite/cinzas/azul. */
+:root {
+  color-scheme: light;
+  --arcana-bg:#fff; --arcana-surface:#fff; --arcana-surface-soft:#f7f8fa;
+  --arcana-text:#202124; --arcana-muted:#6b7280; --arcana-border:#e5e7eb;
+  --arcana-blue:#2563eb; --arcana-blue-hover:#1d4ed8; --arcana-blue-soft:#eff6ff;
+  --arcana-danger:#b42318; --arcana-success:#18794e;
+}
+html, body {
+  background:var(--arcana-bg)!important; color:var(--arcana-text)!important;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+body, body * { font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important; }
+h1,h2,h3,h4,h5,h6 { color:var(--arcana-text)!important; font-weight:650; letter-spacing:-.025em; line-height:1.25; }
+p,li,label,small,.subtitle,.pagina-titulo p,.card-content p,.page-content p { color:var(--arcana-muted); }
+a,.back-button,#saiba-mais { color:var(--arcana-blue)!important; }
+a:hover,.back-button:hover { color:var(--arcana-blue-hover)!important; }
+body>nav,body>header nav,nav,.campaign-nav {
+  background:var(--arcana-surface)!important; color:var(--arcana-text)!important;
+  border-color:var(--arcana-border)!important; box-shadow:none!important;
+}
+nav ul li a,nav .perfil i,.nav-button { color:var(--arcana-text)!important; }
+nav ul li a:hover,nav ul li a.active,.nav-button:hover,.nav-button.active { color:var(--arcana-blue)!important; }
+.campanha-card,.entity-card,.sheet,.info-box,.attribute,.banner,.combat-card,.combat-creature-form,
+.card-content,.container-login,.parte-central,.content-area,.footer,.footer-localizacao {
+  background:var(--arcana-surface)!important; color:var(--arcana-text)!important;
+  border:1px solid var(--arcana-border)!important; border-radius:10px!important; box-shadow:none!important;
+}
+.attribute,.info-box,.banner,.category,.combat-card { background:var(--arcana-surface-soft)!important; }
+.campanha-card:hover,.entity-card:hover { border-color:#bfdbfe!important; box-shadow:0 2px 8px rgba(37,99,235,.07)!important; }
+input,textarea,select,.search,.campaign-field input,.campaign-field textarea,.demo-module-form input,
+.demo-module-form textarea,.combat-add-form select,.combat-creature-form input,.combat-creature-form select,
+.combat-creature-form textarea {
+  background:#fff!important; color:var(--arcana-text)!important; border:1px solid var(--arcana-border)!important;
+  border-radius:8px!important;
+}
+input::placeholder,textarea::placeholder { color:#9ca3af!important; }
+input:focus,textarea:focus,select:focus,.search:focus {
+  border-color:var(--arcana-blue)!important; outline:none!important; box-shadow:0 0 0 3px rgba(37,99,235,.12)!important;
+}
+button,.button,.button-button,.save-button,.roll-button,.demo-module-form button,.combat-add-form button,
+.combat-creature-form button,.combat-card button,.hp-bar button {
+  background:var(--arcana-blue)!important; color:#fff!important; border:1px solid var(--arcana-blue)!important;
+  border-radius:8px!important; font-weight:600; box-shadow:none!important;
+}
+button:hover,.button:hover,.button-button:hover,.save-button:hover,.roll-button:hover {
+  background:var(--arcana-blue-hover)!important; border-color:var(--arcana-blue-hover)!important;
+}
+.filter-buttons button,.tabs button,.combat-card .secondary-button,.adicionar-campanha {
+  background:var(--arcana-surface)!important; color:var(--arcana-text)!important; border:1px solid var(--arcana-border)!important;
+}
+.filter-buttons button.active,.tabs button.active,.nav-button.active {
+  background:var(--arcana-blue-soft)!important; color:var(--arcana-blue)!important; border-color:#bfdbfe!important;
+}
+.combat-card .danger-button { background:#fff!important; color:var(--arcana-danger)!important; border-color:#f1b8b3!important; }
+#login-message[data-type="error"],#cadastro-message[data-type="error"] { color:var(--arcana-danger)!important; }
+#login-message[data-type="success"],#cadastro-message[data-type="success"] { color:var(--arcana-success)!important; }
+:where(a,button,input,select,textarea):focus-visible { outline:3px solid rgba(37,99,235,.35)!important; outline-offset:2px; }
+.campaign-header { color:var(--arcana-text)!important; }
+.campaign-header h1,.campaign-header a { color:var(--arcana-text)!important; }
+.campaign-field label,.demo-module-form label,.combat-add-form label,.combat-creature-form label { color:var(--arcana-text)!important; }
