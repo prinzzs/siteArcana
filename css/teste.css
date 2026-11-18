@@ -601,3 +601,29 @@ body:has(.campaign-manager) .campaign-back-link:focus-visible {
 body:has(.campaign-manager) .campaign-back-link:hover {
   background: transparent !important;
 }
+
+/* Tema escuro: todas as áreas dos módulos usam o fundo geral da página.
+   Mantém campos, botões e elementos interativos com seus próprios estilos. */
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-header,
+:root[data-theme="dark"] body:has(.campaign-manager) .content-area,
+:root[data-theme="dark"] body:has(.campaign-manager) .page-content,
+:root[data-theme="dark"] body:has(.campaign-manager) .page-content.active,
+:root[data-theme="dark"] body:has(.campaign-manager) .demo-module-form,
+:root[data-theme="dark"] body:has(.campaign-manager) .combat-add-form,
+:root[data-theme="dark"] body:has(.campaign-manager) .combat-creature-form,
+:root[data-theme="dark"] body:has(.campaign-manager) .combat-card,
+:root[data-theme="dark"] body:has(.campaign-manager) .combat-encounters {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Remove também contornos de painéis que possam parecer cartões. */
+:root[data-theme="dark"] body:has(.campaign-manager) .page-content,
+:root[data-theme="dark"] body:has(.campaign-manager) .page-content.active,
+:root[data-theme="dark"] body:has(.campaign-manager) .demo-module-form,
+:root[data-theme="dark"] body:has(.campaign-manager) .combat-add-form,
+:root[data-theme="dark"] body:has(.campaign-manager) .combat-creature-form,
+:root[data-theme="dark"] body:has(.campaign-manager) .combat-card {
+  border-radius: 0 !important;
+}
