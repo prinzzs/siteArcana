@@ -1,0 +1,17 @@
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:28px 16px;display:grid;place-items:center;background:#f3f1f7;color:#252231;font-family:Arial,sans-serif}
+body>a{position:fixed;top:22px;left:24px;color:#4e426b;text-decoration:none;font-weight:600}
+.container-login,.parte-central{width:min(100%,430px);padding:36px;background:#fff;border:1px solid #e4dfeb;border-radius:16px;box-shadow:0 12px 36px #21133a12}
+h1{margin:0 0 26px;text-align:center;font-size:28px}
+form{display:grid;gap:10px}
+label{margin-top:8px;font-weight:600;font-size:14px}
+input{width:100%;padding:13px 14px;border:1px solid #cfc9d8;border-radius:8px;font-size:16px}
+input:focus{outline:2px solid #8d79b8;border-color:transparent}
+small{color:#716b7c;margin-top:-5px}
+button{margin-top:14px;padding:13px;border:0;border-radius:8px;background:#44345f;color:#fff;font-size:16px;font-weight:700;cursor:pointer}
+button:disabled{opacity:.6;cursor:wait}
+main>p{text-align:center;margin:18px 0 0}
+main>p a{color:#59447e;font-weight:700}
+#login-message[data-type=error],#cadastro-message[data-type=error]{color:#b42318}
+#login-message[data-type=success],#cadastro-message[data-type=success]{color:#18794e}
+@media(max-width:480px){.container-login,.parte-central{padding:26px 20px}}
