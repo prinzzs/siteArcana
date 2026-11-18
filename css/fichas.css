@@ -165,9 +165,13 @@ nav ul li a.active {
     display: block;
     flex: 0 0 180px;
     width: 100%;
+    min-width: 0;
     height: 180px;
+    min-height: 180px;
+    max-height: 180px;
     object-fit: cover;
-    object-position: center;
+    object-position: center center;
+    overflow: hidden;
     background: #30445f;
 }
 
