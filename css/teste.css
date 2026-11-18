@@ -309,3 +309,190 @@ body {
         width: 100%;
     }
 }
+
+
+/* Cabeçalho editorial da campanha e edição diretamente no texto */
+.campaign-header {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 26px;
+  padding: 8px 0 20px;
+  color: var(--arcana-text);
+}
+
+.campaign-header > a {
+  justify-self: start;
+  margin-bottom: 8px;
+  color: var(--arcana-text-secondary);
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.campaign-header > a:hover {
+  color: var(--arcana-blue);
+  text-decoration: underline;
+}
+
+.campaign-heading {
+  display: grid;
+  gap: 8px;
+  max-width: 850px;
+}
+
+.campaign-name-display {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  color: var(--arcana-text);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 750;
+  line-height: 1.12;
+  letter-spacing: -.045em;
+  cursor: text;
+  overflow-wrap: anywhere;
+}
+
+.campaign-description-display {
+  max-width: 720px;
+  margin: 0;
+  color: var(--arcana-text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+  cursor: text;
+  overflow-wrap: anywhere;
+}
+
+.campaign-name-display[contenteditable="true"],
+.campaign-description-display[contenteditable="true"] {
+  width: 100%;
+  padding: 5px 8px;
+  margin-left: -8px;
+  border-radius: 7px;
+  outline: 2px solid var(--arcana-focus);
+  background: var(--arcana-surface);
+  cursor: text;
+  white-space: pre-wrap;
+}
+
+.campaign-edit-hint {
+  color: var(--arcana-text-muted);
+  font-size: 12px;
+}
+
+.campaign-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.campaign-actions[hidden] {
+  display: none;
+}
+
+.cancel-edit-button {
+  min-height: 40px;
+  padding: 9px 15px;
+  border: 1px solid var(--arcana-border);
+  border-radius: var(--arcana-radius-sm);
+  background: var(--arcana-surface);
+  color: var(--arcana-text-secondary);
+  cursor: pointer;
+}
+
+.campaign-save-status {
+  min-height: 1.4em;
+  margin: 0;
+  color: var(--arcana-success);
+  font-size: 13px;
+}
+
+/* Navegação por grupos para reduzir a sensação de grade de botões soltos */
+.campaign-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 26px 0;
+}
+
+.campaign-nav-group {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+
+.campaign-nav-group h2 {
+  margin: 0;
+  color: var(--arcana-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.campaign-nav-items {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.campaign-nav .nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 54px;
+  padding: 12px 15px;
+  border: 1px solid var(--arcana-border);
+  border-radius: 10px;
+  background: var(--arcana-surface);
+  color: var(--arcana-text-secondary);
+  font-size: 13px;
+  font-weight: 550;
+  line-height: 1.35;
+  text-align: left;
+  box-shadow: none;
+  transition: background .16s ease, border-color .16s ease, color .16s ease, transform .16s ease;
+}
+
+.campaign-nav .nav-button:hover {
+  border-color: var(--arcana-border-strong);
+  background: var(--arcana-surface-subtle);
+  color: var(--arcana-text);
+  transform: translateY(-1px);
+}
+
+.campaign-nav .nav-button.active {
+  border-color: #c4d7e9;
+  background: var(--arcana-blue-soft);
+  color: var(--arcana-blue);
+  font-weight: 650;
+}
+
+@media (max-width: 900px) {
+  .campaign-nav-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .campaign-header {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .campaign-nav-items {
+    grid-template-columns: 1fr;
+  }
+
+  .campaign-nav .nav-button {
+    min-height: 46px;
+  }
+
+  .campaign-actions {
+    flex-direction: column;
+  }
+
+  .campaign-actions button {
+    width: 100%;
+  }
+}
