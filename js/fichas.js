@@ -217,6 +217,11 @@ let filtroAtual = "todos";
 let criaturaAtual = null;
 let vidaAtual = 0;
 
+// Dados personalizados vêm do armazenamento local e precisam ser escapados antes de entrar em HTML.
+const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+}[char]));
+
 function renderizarEntidades() {
 
     const termo = search.value.toLowerCase();
@@ -337,16 +342,16 @@ function renderizarStatus(entidade) {
                 (nome, index) => `
                     <div class="attribute">
                         ${nome}
-                        <strong>${entidade.atributos[index]}</strong>
+                        <strong>${escapeHTML(entidade.atributos[index])}</strong>
                     </div>
                 `
             ).join("")}
         </div>
 
         <div class="info-box">
-            <p><strong>Defesa:</strong> ${entidade.defesa}</p>
+            <p><strong>Defesa:</strong> ${escapeHTML(entidade.defesa)}</p>
             <p><strong>Deslocamento:</strong></p>
-            ${entidade.deslocamento.map(item => `<p>${item}</p>`).join("")}
+            ${entidade.deslocamento.map(item => `<p>${escapeHTML(item)}</p>`).join("")}
         </div>
 
         <h3>Perícias</h3>
@@ -363,8 +368,8 @@ function renderizarStatus(entidade) {
             <tbody>
                 ${entidade.pericias.map((pericia, index) => `
                     <tr>
-                        <td>${pericia[0]}</td>
-                        <td>${pericia[1]}</td>
+                        <td>${escapeHTML(pericia[0])}</td>
+                        <td>${escapeHTML(pericia[1])}</td>
                         <td>
                             <button class="roll-button"
                                 data-pericia="${index}">
@@ -415,8 +420,8 @@ function renderizarCombate(entidade) {
 
         ${entidade.combate.map(poder => `
             <div class="info-box">
-                <h3>${poder.nome}</h3>
-                <p>${poder.descricao}</p>
+                <h3>${escapeHTML(poder.nome)}</h3>
+                <p>${escapeHTML(poder.descricao)}</p>
             </div>
         `).join("")}
     `;
@@ -426,8 +431,8 @@ function criarInfo(titulo, itens) {
 
     return `
         <div class="info-box">
-            <h3>${titulo}</h3>
-            ${itens.map(item => `<p>${item}</p>`).join("")}
+            <h3>${escapeHTML(titulo)}</h3>
+            ${itens.map(item => `<p>${escapeHTML(item)}</p>`).join("")}
         </div>
     `;
 }
@@ -509,7 +514,7 @@ function rolarPericia(index) {
     resultado += modificador;
 
     alert(
-        `${pericia[0]}\n` +
+        `${escapeHTML(pericia[0])}\n` +
         `Dados: ${detalhes.join(" + ")}\n` +
         `Modificador: ${modificador}\n` +
         `Resultado: ${resultado}`
