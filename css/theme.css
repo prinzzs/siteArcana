@@ -734,3 +734,354 @@ body:has(#cadastro-form) form button {
   margin-top: 12px;
 }
 
+
+/* =========================================================
+   ARCANA — UX DO GERENCIADOR DE CAMPANHA
+   Componentes de conteúdo: formulários, listas e estados vazios.
+   A navegação existente permanece intocada.
+   ========================================================= */
+
+body:has(.campaign-header) {
+  background:
+    radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--color-accent) 7%, transparent), transparent 38%),
+    var(--color-background) !important;
+}
+
+body:has(.campaign-header) .container {
+  width: min(1320px, calc(100% - 64px));
+  max-width: 1320px;
+  margin: clamp(24px, 3.5vw, 46px) auto 80px;
+}
+
+.campaign-header {
+  display: grid;
+  gap: 18px;
+  padding: clamp(22px, 3vw, 34px) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 18px !important;
+  background: var(--color-surface) !important;
+  box-shadow: 0 12px 34px rgba(28, 20, 40, .055) !important;
+}
+
+.campaign-field {
+  gap: 9px !important;
+}
+
+.campaign-field label {
+  font-size: .84rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .01em;
+}
+
+.campaign-field input,
+.campaign-field textarea {
+  min-height: 48px;
+  padding: 12px 15px !important;
+  border-radius: 10px !important;
+  background: var(--color-input) !important;
+}
+
+.campaign-field textarea {
+  min-height: 112px;
+  line-height: 1.65;
+}
+
+.campaign-actions {
+  padding-top: 2px;
+}
+
+.save-button {
+  min-height: 44px;
+  padding: 0 22px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.content-area {
+  padding: clamp(28px, 4vw, 48px) 0 20px !important;
+}
+
+.page-content.active {
+  width: 100%;
+  max-width: 1040px;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--color-accent) 4%, var(--color-surface)), var(--color-surface) 48%);
+  box-shadow: 0 12px 34px rgba(28, 20, 40, .045);
+  animation: arcana-panel-in .24s ease both;
+}
+
+@keyframes arcana-panel-in {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-content.active > h2 {
+  position: relative;
+  margin: 0 0 10px !important;
+  padding-bottom: 16px;
+  font-family: 'Alegreya', Georgia, serif !important;
+  font-size: clamp(1.9rem, 3.2vw, 2.55rem) !important;
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
+
+.page-content.active > h2::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 3px;
+  margin-top: 15px;
+  border-radius: 4px;
+  background: var(--color-accent);
+}
+
+.page-content.active > p {
+  max-width: 720px;
+  margin: 0 0 24px;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* Formulários gerados pelos módulos: campos alinhados e largura útil. */
+.page-content .demo-module-form {
+  width: 100%;
+  max-width: none !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 20px !important;
+  margin: 26px 0 30px !important;
+  padding: clamp(18px, 2.8vw, 26px);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-surface);
+  box-shadow: 0 5px 18px rgba(28, 20, 40, .035);
+}
+
+.page-content .demo-module-form label {
+  display: flex !important;
+  flex-direction: column;
+  gap: 9px !important;
+  min-width: 0;
+  color: var(--color-text) !important;
+  font-size: .84rem !important;
+  font-weight: 700 !important;
+}
+
+.page-content .demo-module-form label:has(textarea) {
+  grid-column: 1 / -1;
+}
+
+.page-content .demo-module-form input,
+.page-content .demo-module-form textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 12px 14px !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 10px !important;
+  background: var(--color-input) !important;
+  color: var(--color-text) !important;
+  font: 500 .92rem 'Manrope', sans-serif !important;
+}
+
+.page-content .demo-module-form textarea {
+  min-height: 116px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.page-content .demo-module-form input:hover,
+.page-content .demo-module-form textarea:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 55%, var(--color-border)) !important;
+}
+
+.page-content .demo-module-form input:focus,
+.page-content .demo-module-form textarea:focus {
+  outline: none !important;
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 15%, transparent) !important;
+}
+
+.page-content .demo-module-form button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  min-width: 118px;
+  min-height: 44px;
+  padding: 0 21px !important;
+  border: 1px solid var(--color-primary) !important;
+  border-radius: 10px !important;
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  font: 700 .88rem 'Manrope', sans-serif !important;
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--color-primary) 17%, transparent);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.page-content .demo-module-form button:hover {
+  transform: translateY(-2px);
+  background: var(--color-primary-hover) !important;
+  box-shadow: 0 8px 19px color-mix(in srgb, var(--color-primary) 22%, transparent);
+}
+
+/* Registros e estado vazio: deixam de parecer uma lista HTML sem estilo. */
+.page-content > ul:not(.combat-creature-list) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 12px;
+  margin: 18px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.page-content > ul:not(.combat-creature-list) > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  min-width: 0;
+  padding: 17px 18px !important;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  box-shadow: 0 3px 12px rgba(28, 20, 40, .025);
+}
+
+.page-content > ul:not(.combat-creature-list) > li:has(> :only-child) {
+  color: var(--color-text-muted);
+}
+
+.page-content > ul:not(.combat-creature-list) > li > span {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.page-content > ul:not(.combat-creature-list) > li > button {
+  min-height: 36px;
+  padding: 0 13px !important;
+  border: 1px solid color-mix(in srgb, var(--color-danger) 35%, var(--color-border)) !important;
+  border-radius: 8px !important;
+  background: color-mix(in srgb, var(--color-danger) 8%, var(--color-surface)) !important;
+  color: var(--color-danger) !important;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.page-content > ul:not(.combat-creature-list) > li > button:hover {
+  background: color-mix(in srgb, var(--color-danger) 15%, var(--color-surface)) !important;
+}
+
+/* Combates: preserva a lógica existente e dá estrutura visual aos encontros. */
+.combat-encounters {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  align-items: start;
+}
+
+.combat-card {
+  padding: clamp(18px, 2.5vw, 26px) !important;
+  border-radius: 15px !important;
+  background: var(--color-surface) !important;
+}
+
+.combat-card h3 {
+  font-family: 'Alegreya', Georgia, serif;
+  font-size: 1.5rem;
+}
+
+.combat-card > p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.combat-card .combat-creature-form {
+  width: 100%;
+  max-width: none;
+}
+
+.combat-creature-list {
+  margin: 18px 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+.combat-creature-list li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface-muted);
+}
+
+.combat-creature-list button {
+  min-height: 34px;
+  padding: 0 10px !important;
+  font-size: .76rem;
+}
+
+/* Visão geral com leitura em blocos, sem alterar seus dados. */
+#overview > h2 {
+  font-size: clamp(2.2rem, 4vw, 3rem) !important;
+}
+
+#overview > p {
+  max-width: 760px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--color-surface-muted);
+}
+
+/* Acessibilidade e adaptação responsiva. */
+.page-content :focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 60%, transparent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  body:has(.campaign-header) .container {
+    width: calc(100% - 28px);
+    margin-top: 16px;
+  }
+
+  .page-content.active {
+    padding: 20px 16px;
+  }
+
+  .page-content .demo-module-form {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 15px !important;
+  }
+
+  .page-content .demo-module-form label:has(textarea),
+  .page-content .demo-module-form button {
+    grid-column: auto;
+  }
+
+  .page-content .demo-module-form button {
+    width: 100%;
+  }
+
+  .page-content > ul:not(.combat-creature-list) {
+    grid-template-columns: 1fr;
+  }
+
+  .campaign-actions .save-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-content.active {
+    animation: none;
+  }
+}
