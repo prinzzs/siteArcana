@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
         row.append(" ",down," ",up," ",remove); creatureList.append(row);
       });
       const deleteButton=makeElement("button","Excluir combate","danger-button"); deleteButton.type="button";
-      deleteButton.addEventListener("click",()=>{if(confirm("Excluir este combate?")){encounters=encounters.filter(item=>item.id!==encounter.id);saveEncounters();renderCombatManager();}});
+      deleteButton.addEventListener("click", async () => { const confirmed = await ArcanaModal.confirm("O combate e os dados associados serão removidos desta campanha. Deseja continuar?", "Excluir combate"); if (confirmed) { encounters = encounters.filter(item => item.id !== encounter.id); saveEncounters(); renderCombatManager(); } });
       card.append(creatureList,deleteButton); list.append(card);
     });
   }
