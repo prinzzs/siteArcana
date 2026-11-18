@@ -15,3 +15,42 @@ main>p a{color:#59447e;font-weight:700}
 #login-message[data-type=error],#cadastro-message[data-type=error]{color:#b42318}
 #login-message[data-type=success],#cadastro-message[data-type=success]{color:#18794e}
 @media(max-width:480px){.container-login,.parte-central{padding:26px 20px}}
+
+
+/* LOGIN E CADASTRO — foco, confiança e leitura */
+body:has(.container-login), body:has(.parte-central) {
+  min-height: 100svh !important;
+  padding: 72px 20px 40px !important;
+  display: grid !important;
+  place-items: center !important;
+  background:
+    radial-gradient(ellipse at 50% 5%, color-mix(in srgb, var(--color-accent) 15%, transparent), transparent 46%),
+    var(--color-background) !important;
+}
+body:has(.container-login) > a, body:has(.parte-central) > a {
+  position: fixed !important; top: 26px !important; left: 30px !important;
+  font-size: .9rem; font-weight: 700; text-decoration: none;
+}
+.container-login, .parte-central {
+  width: min(100%, 470px) !important;
+  padding: clamp(28px,5vw,46px) !important;
+  border-radius: 22px !important;
+  background: var(--color-surface) !important;
+  box-shadow: 0 18px 55px rgba(31,20,47,.09) !important;
+}
+.container-login h1, .parte-central h1 {
+  margin: 0 0 28px !important; font-size: clamp(2.1rem,5vw,2.7rem) !important;
+  text-align: left !important;
+}
+.container-login form, .parte-central form { display: grid; gap: 10px !important; }
+.container-login label, .parte-central label { margin-top: 8px !important; font-size: .86rem !important; font-weight: 750 !important; }
+.container-login input, .parte-central input { min-height: 50px !important; }
+.container-login button, .parte-central button { width: 100%; min-height: 50px; margin-top: 16px !important; }
+.container-login > p, .parte-central > p { text-align: left !important; margin-top: 18px !important; font-size: .9rem; }
+.container-login > p a, .parte-central > p a { font-weight: 800; }
+.container-login small, .parte-central small { line-height: 1.5; }
+@media(max-width:480px) {
+ body:has(.container-login), body:has(.parte-central) { padding: 76px 14px 28px !important; }
+ body:has(.container-login) > a, body:has(.parte-central) > a { left: 18px !important; }
+ .container-login, .parte-central { padding: 28px 22px !important; }
+}
