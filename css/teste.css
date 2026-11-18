@@ -577,3 +577,27 @@ body:has(.campaign-manager) main.campaign-manager {
   background-color: var(--arcana-surface);
   color: var(--arcana-text);
 }
+
+/* Ajustes finais: remover fundos claros dos painéis no tema escuro */
+:root[data-theme="dark"] body:has(.campaign-manager) .campaign-header,
+:root[data-theme="dark"] body:has(.campaign-manager) .content-area,
+:root[data-theme="dark"] body:has(.campaign-manager) .page-content,
+:root[data-theme="dark"] body:has(.campaign-manager) .page-content.active {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* O botão Voltar fica sem contorno em todos os estados */
+body:has(.campaign-manager) .campaign-back-link,
+body:has(.campaign-manager) .campaign-back-link:hover,
+body:has(.campaign-manager) .campaign-back-link:focus,
+body:has(.campaign-manager) .campaign-back-link:focus-visible {
+  border: 0 !important;
+  outline-offset: 3px;
+  box-shadow: none !important;
+}
+
+body:has(.campaign-manager) .campaign-back-link:hover {
+  background: transparent !important;
+}
