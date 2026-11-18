@@ -259,10 +259,18 @@ function renderizarEntidades() {
         const card = document.createElement("article");
         card.className = "entity-card";
 
-        const imagem = document.createElement("img");
-        imagem.src = entidade.imagem;
-        imagem.alt = entidade.nome;
-        imagem.onerror = () => imagem.style.display = "none";
+        // Área de imagem exclusiva do card; permanece reservada mesmo sem foto.
+        const areaImagem = document.createElement("div");
+        areaImagem.className = "entity-image-slot";
+
+        if (entidade.imagem) {
+            const imagem = document.createElement("img");
+            imagem.src = entidade.imagem;
+            imagem.alt = entidade.nome;
+            imagem.loading = "lazy";
+            imagem.onerror = () => imagem.remove();
+            areaImagem.appendChild(imagem);
+        }
 
         const conteudo = document.createElement("div");
         conteudo.className = "card-content";
@@ -281,7 +289,7 @@ function renderizarEntidades() {
         categoria.textContent = grupoNome;
 
         conteudo.append(titulo, vd, tipo, categoria);
-        card.append(imagem, conteudo);
+        card.append(areaImagem, conteudo);
 
         card.addEventListener("click", () => {
             abrirFicha(entidade.id);
