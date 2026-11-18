@@ -15,3 +15,58 @@ main>p a{color:#59447e;font-weight:700}
 #login-message[data-type=error],#cadastro-message[data-type=error]{color:#b42318}
 #login-message[data-type=success],#cadastro-message[data-type=success]{color:#18794e}
 @media(max-width:480px){.container-login,.parte-central{padding:26px 20px}}
+
+/* Paleta oficial Arcana — login e cadastro */
+body {
+  background: var(--arcana-bg, #f6f8fb);
+  color: var(--arcana-text, #202b3c);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+body > a {
+  color: var(--arcana-blue, #376b9b);
+}
+.container-login,
+.parte-central {
+  background: var(--arcana-surface, #fff);
+  color: var(--arcana-text, #202b3c);
+  border-color: var(--arcana-border, #e2e8f0);
+  border-radius: var(--arcana-radius-lg, 16px);
+  box-shadow: var(--arcana-shadow-card, 0 12px 36px rgba(24,39,58,.07));
+}
+.container-login h1,
+.parte-central h1 {
+  color: var(--arcana-text, #202b3c);
+}
+.container-login label,
+.parte-central label {
+  color: var(--arcana-text-secondary, #536174);
+}
+.container-login input,
+.parte-central input {
+  color: var(--arcana-text, #202b3c);
+  background: var(--arcana-surface, #fff);
+  border-color: var(--arcana-border-strong, #cbd5e1);
+}
+.container-login input:focus,
+.parte-central input:focus {
+  outline: 0;
+  border-color: var(--arcana-blue, #376b9b);
+  box-shadow: 0 0 0 3px var(--arcana-focus, rgba(55,107,155,.22));
+}
+.container-login button,
+.parte-central button {
+  background: var(--arcana-blue, #376b9b);
+  color: #fff;
+}
+.container-login button:hover,
+.parte-central button:hover {
+  background: var(--arcana-blue-hover, #2d587f);
+}
+.container-login small,
+.parte-central small {
+  color: var(--arcana-text-muted, #788597);
+}
+.container-login > p a,
+.parte-central > p a {
+  color: var(--arcana-blue, #376b9b);
+}
