@@ -1085,3 +1085,85 @@ body:has(.campaign-header) .container {
     animation: none;
   }
 }
+
+
+/* ==========================================================
+   ARCANA DESIGN SYSTEM — REFINAMENTO GLOBAL
+   Camada visual. Não altera navegação, conteúdo ou lógica.
+   ========================================================== */
+:root {
+  --arcana-radius-sm: 10px;
+  --arcana-radius-md: 16px;
+  --arcana-radius-lg: 22px;
+  --arcana-content-width: 1180px;
+  --arcana-ease: cubic-bezier(.2,.75,.25,1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif !important;
+  line-height: 1.65;
+  letter-spacing: -.012em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1,h2,h3,h4,.title,.sheet-title h2 {
+  font-family: 'Alegreya', Georgia, serif !important;
+  letter-spacing: -.035em;
+  line-height: 1.12;
+}
+p { line-height: 1.8; }
+a, button, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+a { text-underline-offset: 4px; }
+button { cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 60%, transparent) !important;
+  outline-offset: 3px;
+}
+input, textarea, select {
+  min-height: 46px;
+  padding: 11px 14px !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 11px !important;
+  background: var(--color-input) !important;
+  color: var(--color-text) !important;
+  font: 500 .93rem 'Manrope', sans-serif !important;
+  transition: border-color .18s var(--arcana-ease), box-shadow .18s var(--arcana-ease), background .18s var(--arcana-ease);
+}
+textarea { min-height: 110px; line-height: 1.7; resize: vertical; }
+input::placeholder, textarea::placeholder { color: var(--color-text-muted); opacity: .78; }
+input:hover, textarea:hover, select:hover { border-color: color-mix(in srgb, var(--color-accent) 55%, var(--color-border)) !important; }
+input:focus, textarea:focus, select:focus {
+  outline: 0 !important;
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 16%, transparent) !important;
+}
+button, .button, .button-button, .save-button, .roll-button {
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 750 !important;
+  border-radius: 11px !important;
+  transition: transform .18s var(--arcana-ease), box-shadow .18s var(--arcana-ease), background .18s var(--arcana-ease), border-color .18s var(--arcana-ease) !important;
+}
+button:hover, .button:hover, .button-button:hover, .save-button:hover, .roll-button:hover {
+  transform: translateY(-1px);
+}
+button:disabled { opacity: .55; cursor: not-allowed; transform: none !important; }
+.campanha-card, .entity-card, .sheet, .info-box, .attribute, .banner,
+.combat-card, .combat-creature-form, .container-login, .parte-central {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--arcana-radius-md) !important;
+  box-shadow: 0 3px 10px rgba(34,24,48,.035), 0 16px 38px rgba(34,24,48,.045) !important;
+}
+:root[data-theme="dark"] .campanha-card,
+:root[data-theme="dark"] .entity-card,
+:root[data-theme="dark"] .sheet,
+:root[data-theme="dark"] .info-box,
+:root[data-theme="dark"] .attribute,
+:root[data-theme="dark"] .banner,
+:root[data-theme="dark"] .combat-card,
+:root[data-theme="dark"] .combat-creature-form,
+:root[data-theme="dark"] .container-login,
+:root[data-theme="dark"] .parte-central {
+  box-shadow: 0 8px 28px rgba(0,0,0,.18) !important;
+}
