@@ -131,13 +131,26 @@
       slot.innerHTML = '<a href="login.html">Entrar</a>';
       return;
     }
+    const profile = document.createElement("div");
+    profile.className = "perfil-identidade";
+
+    const avatar = document.createElement("span");
+    avatar.className = "perfil-avatar";
+    avatar.setAttribute("aria-hidden", "true");
+    avatar.textContent = (session.displayName || session.username || "?").trim().charAt(0).toUpperCase();
+
     const name = document.createElement("span");
+    name.className = "perfil-nome";
     name.textContent = session.displayName + " (@" + session.username + ")";
+
+    profile.append(avatar, name);
+
     const button = document.createElement("button");
     button.type = "button";
+    button.className = "perfil-sair";
     button.textContent = "Sair";
     button.addEventListener("click", logout);
-    slot.replaceChildren(name, button);
+    slot.replaceChildren(profile, button);
   }
 
   window.ArcanaAuth = { register, login, logout, requireAuth, getSession, renderUserMenu };
