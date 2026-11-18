@@ -198,6 +198,16 @@ const entidades = [
 
 ];
 
+// Criaturas cadastradas pelo mestre também aparecem no catálogo de fichas.
+try {
+  const personalizadas = JSON.parse(localStorage.getItem("arcana_custom_creatures") || "[]");
+  personalizadas.forEach(criatura => {
+    if (!entidades.some(item => item.id === criatura.id)) entidades.push(criatura);
+  });
+} catch (erro) {
+  console.warn("Não foi possível carregar as criaturas personalizadas.", erro);
+}
+
 const catalog = document.getElementById("catalog");
 const detail = document.getElementById("detail");
 const grid = document.getElementById("entityGrid");
