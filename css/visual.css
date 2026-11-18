@@ -1078,3 +1078,25 @@ nav[aria-label="Navegação principal"] .perfil-sair:hover {
     margin: 0 auto !important;
   }
 }
+
+
+/* Fichas de criaturas: área de informações em cinza para destacar do fundo. */
+.entity-card .card-content {
+  background: #e5e7eb !important;
+  color: #292957 !important;
+}
+
+.entity-card .card-content h2,
+.entity-card .card-content p {
+  color: #292957 !important;
+}
+
+:root[data-theme="dark"] .entity-card .card-content {
+  background: #35345d !important;
+  color: #e5e6ff !important;
+}
+
+:root[data-theme="dark"] .entity-card .card-content h2,
+:root[data-theme="dark"] .entity-card .card-content p {
+  color: #e5e6ff !important;
+}
