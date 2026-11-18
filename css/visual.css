@@ -1014,3 +1014,67 @@ body:has(#campaign-form) #campaign-form {
   background-color: transparent !important;
   border-color: transparent !important;
 }
+
+/* Navegação global: centraliza os links sem deslocá-los pelo menu de usuário à direita. */
+nav[aria-label="Navegação principal"] {
+  position: relative;
+}
+
+nav[aria-label="Navegação principal"] ul {
+  flex: 0 1 auto !important;
+  margin-inline: auto !important;
+  justify-content: center !important;
+}
+
+nav[aria-label="Navegação principal"] .perfil {
+  position: absolute !important;
+  right: var(--arcana-gutter) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+nav[aria-label="Navegação principal"] .perfil-sair {
+  min-height: 34px !important;
+  padding: 7px 13px !important;
+  border: 1px solid var(--arcana-border) !important;
+  border-radius: 7px !important;
+  background: transparent !important;
+  color: var(--arcana-text-secondary) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+nav[aria-label="Navegação principal"] .perfil-sair:hover {
+  border-color: var(--arcana-border-strong) !important;
+  background: var(--arcana-surface-subtle) !important;
+  color: var(--arcana-text) !important;
+}
+
+@media (max-width: 600px) {
+  nav[aria-label="Navegação principal"] {
+    padding-bottom: 12px;
+  }
+
+  nav[aria-label="Navegação principal"] ul {
+    flex: 1 1 100% !important;
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  nav[aria-label="Navegação principal"] .perfil {
+    position: static !important;
+    transform: none !important;
+    margin: 0 auto !important;
+  }
+}
