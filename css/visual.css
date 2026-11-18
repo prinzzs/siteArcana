@@ -102,7 +102,7 @@ main.container {
 /* Superfícies e cartões */
 :where(.campanha-card, .entity-card, .sheet, .info-box, .attribute, .banner,
 .combat-card, .combat-creature-form, .card-content, .container-login,
-.parte-central, .content-area, .footer-localizacao) {
+.parte-central, .content-area) {
   color: var(--arcana-text);
   background: var(--arcana-surface);
   border: 1px solid var(--arcana-border);
@@ -230,6 +230,27 @@ body:has(.container-login) > a, body:has(.parte-central) > a {
 }
 #login-message[data-type="error"], #cadastro-message[data-type="error"] { color: var(--arcana-danger); }
 #login-message[data-type="success"], #cadastro-message[data-type="success"] { color: var(--arcana-success); }
+
+/* Rodapé da página inicial: a superfície envolve texto, mapa e copyright. */
+.footer {
+  width: 100%;
+  background: var(--arcana-surface);
+  border-top: 1px solid var(--arcana-border);
+  box-shadow: 0 -6px 24px rgba(24, 39, 58, .035);
+}
+
+.footer-localizacao {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--arcana-text);
+}
+
+.footer > p {
+  color: var(--arcana-text-muted);
+  font-size: 13px;
+}
 
 /* Página inicial */
 .container-cima { color: var(--arcana-text); }
