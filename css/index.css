@@ -404,3 +404,69 @@ body {
   border-color: var(--color-border);
   color: var(--color-text) !important;
 }
+
+
+/* HOME — hero editorial, com presença e conteúdo bem composto */
+.container-cima {
+  min-height: min(900px, 100svh) !important;
+  padding: clamp(100px, 14vh, 150px) 24px 112px !important;
+  gap: 24px !important;
+  background:
+    radial-gradient(ellipse at 50% 42%, color-mix(in srgb, var(--color-accent) 15%, transparent), transparent 47%),
+    radial-gradient(ellipse at 12% 12%, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 35%),
+    var(--color-background) !important;
+  isolation: isolate;
+}
+.container-cima::before {
+  width: min(58vw, 700px) !important;
+  border-color: color-mix(in srgb, var(--color-accent) 22%, transparent) !important;
+  box-shadow: 0 0 0 38px color-mix(in srgb, var(--color-accent) 3%, transparent),
+              0 0 0 82px color-mix(in srgb, var(--color-accent) 2%, transparent) !important;
+}
+.container-cima .title {
+  max-width: 940px !important;
+  font-size: clamp(3.6rem, 8vw, 7.2rem) !important;
+  line-height: .94 !important;
+  letter-spacing: -.065em !important;
+  text-wrap: balance;
+}
+.container-cima .title span { color: var(--color-primary) !important; font-style: italic; }
+.container-cima .subtitle {
+  max-width: 560px !important;
+  font-size: clamp(1rem, 1.5vw, 1.2rem) !important;
+  line-height: 1.9 !important;
+  text-wrap: balance;
+}
+.container-button-cadastro .button {
+  min-height: 54px !important;
+  padding: 0 30px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 10px 25px color-mix(in srgb, var(--color-primary) 22%, transparent) !important;
+}
+.container-cima > .container-login { top: 28px !important; right: clamp(20px, 4vw, 64px) !important; }
+.container-cima > .container-login .button-button {
+  min-height: 44px !important; padding: 0 20px !important;
+  border: 1px solid var(--color-border) !important; border-radius: 999px !important;
+  background: var(--color-surface) !important; color: var(--color-text) !important;
+}
+#saiba-mais { bottom: 32px !important; color: var(--color-text-muted) !important; text-decoration: none !important; }
+.footer {
+  display: grid !important;
+  grid-template-columns: minmax(250px,.8fr) minmax(0,1.4fr) !important;
+  gap: clamp(24px,5vw,64px) !important;
+  align-items: center !important;
+  padding: clamp(36px,6vw,76px) !important;
+  background: var(--color-surface) !important;
+  border-top: 1px solid var(--color-border) !important;
+}
+.footer-localizacao { border: 0 !important; box-shadow: none !important; background: transparent !important; }
+.footer-localizacao h2 { font-size: clamp(2rem,3vw,2.8rem) !important; }
+.footer #map { min-height: 320px !important; border-radius: 18px !important; }
+.footer > p { grid-column: 1/-1; margin: 0; padding-top: 22px; border-top: 1px solid var(--color-border); text-align: center; font-size: .82rem; }
+@media(max-width:760px) {
+ .container-cima { min-height: max(650px,92svh) !important; padding: 110px 20px 100px !important; }
+ .container-cima .title { font-size: clamp(3rem,12vw,5.2rem) !important; }
+ .container-cima::before { width: 88vw; }
+ .footer { grid-template-columns: 1fr !important; padding: 30px 20px !important; }
+ .footer #map { min-height: 260px !important; }
+}
