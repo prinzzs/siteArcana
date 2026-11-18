@@ -270,3 +270,88 @@ body:has(.container-login) > a, body:has(.parte-central) > a {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+
+/* Identidade do usuário no canto direito da navegação */
+nav[aria-label="Navegação principal"] .perfil {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  min-width: 0;
+  padding: 6px 8px 6px 10px;
+  border: 1px solid var(--arcana-border);
+  border-radius: 999px;
+  background: var(--arcana-surface-subtle);
+}
+
+nav[aria-label="Navegação principal"] .perfil-identidade {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+nav[aria-label="Navegação principal"] .perfil-avatar {
+  display: inline-grid;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--arcana-blue-soft);
+  color: var(--arcana-blue);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+nav[aria-label="Navegação principal"] .perfil-nome {
+  display: block;
+  max-width: 180px;
+  overflow: hidden;
+  color: var(--arcana-text);
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+nav[aria-label="Navegação principal"] .perfil-sair {
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid var(--arcana-border);
+  border-radius: 999px;
+  background: var(--arcana-surface);
+  color: var(--arcana-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .16s ease, border-color .16s ease, color .16s ease;
+}
+
+nav[aria-label="Navegação principal"] .perfil-sair:hover {
+  border-color: var(--arcana-border-strong);
+  background: var(--arcana-surface-subtle);
+  color: var(--arcana-text);
+}
+
+nav[aria-label="Navegação principal"] .perfil > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--arcana-blue-soft);
+  color: var(--arcana-blue);
+  font-weight: 650;
+}
+
+@media (max-width: 600px) {
+  nav[aria-label="Navegação principal"] .perfil {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  nav[aria-label="Navegação principal"] .perfil-nome {
+    max-width: min(42vw, 180px);
+  }
+}
