@@ -734,3 +734,232 @@ nav[aria-label="Navegação principal"] .perfil-avatar {
     overflow-x: auto;
   }
 }
+
+
+/* ==========================================================
+   Revisão ampla do tema escuro — todas as áreas e componentes
+   ========================================================== */
+:root[data-theme="dark"] body {
+  background: var(--arcana-bg) !important;
+  color: var(--arcana-text) !important;
+}
+
+:root[data-theme="dark"] main,
+:root[data-theme="dark"] main > header,
+:root[data-theme="dark"] .pagina-titulo,
+:root[data-theme="dark"] section,
+:root[data-theme="dark"] .campaign-heading {
+  color: var(--arcana-text);
+}
+
+:root[data-theme="dark"] main h1,
+:root[data-theme="dark"] main h2,
+:root[data-theme="dark"] main h3,
+:root[data-theme="dark"] main h4,
+:root[data-theme="dark"] .pagina-titulo h1,
+:root[data-theme="dark"] #new-campaign-title {
+  color: var(--arcana-text) !important;
+}
+
+/* Campanhas: listagem, cartões, adicionar e formulário de criação. */
+:root[data-theme="dark"] .campanha-card,
+:root[data-theme="dark"] .campanha-demonstrativa,
+:root[data-theme="dark"] #new-campaign,
+:root[data-theme="dark"] #campaign-form {
+  background: var(--arcana-surface) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border) !important;
+}
+
+:root[data-theme="dark"] .campanha-card h3,
+:root[data-theme="dark"] .campanha-card footer,
+:root[data-theme="dark"] .campanha-card p,
+:root[data-theme="dark"] .campanha-acoes a,
+:root[data-theme="dark"] .campanha-acoes button,
+:root[data-theme="dark"] #campaign-message,
+:root[data-theme="dark"] #new-campaign label {
+  color: var(--arcana-text-secondary) !important;
+}
+
+:root[data-theme="dark"] .adicionar-campanha {
+  background: var(--arcana-surface-subtle) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border-strong) !important;
+}
+
+:root[data-theme="dark"] .adicionar-campanha:hover {
+  background: var(--arcana-blue-soft) !important;
+  color: var(--arcana-text) !important;
+}
+
+:root[data-theme="dark"] #new-campaign input,
+:root[data-theme="dark"] #new-campaign textarea,
+:root[data-theme="dark"] #campaign-form input,
+:root[data-theme="dark"] #campaign-form textarea {
+  background: var(--arcana-surface-raised) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border-strong) !important;
+}
+
+/* Catálogo e fichas: cartões, filtros, abas, atributos e tabelas. */
+:root[data-theme="dark"] .entity-card,
+:root[data-theme="dark"] .card-content,
+:root[data-theme="dark"] .sheet,
+:root[data-theme="dark"] .banner,
+:root[data-theme="dark"] .info-box,
+:root[data-theme="dark"] .attribute {
+  background: var(--arcana-surface) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border) !important;
+}
+
+:root[data-theme="dark"] .card-content h2,
+:root[data-theme="dark"] .card-content p,
+:root[data-theme="dark"] .entity-card p,
+:root[data-theme="dark"] .sheet-title p,
+:root[data-theme="dark"] .info-box p,
+:root[data-theme="dark"] .section,
+:root[data-theme="dark"] .section p,
+:root[data-theme="dark"] .section li,
+:root[data-theme="dark"] .hp-bar span {
+  color: var(--arcana-text-secondary) !important;
+}
+
+:root[data-theme="dark"] .category {
+  background: var(--arcana-blue-soft) !important;
+  color: var(--arcana-text) !important;
+}
+
+:root[data-theme="dark"] .filters .search,
+:root[data-theme="dark"] .filter-buttons button,
+:root[data-theme="dark"] .tabs button:not(.active) {
+  background: var(--arcana-surface-raised) !important;
+  color: var(--arcana-text-secondary) !important;
+  border-color: var(--arcana-border) !important;
+}
+
+:root[data-theme="dark"] .filter-buttons button.active,
+:root[data-theme="dark"] .tabs button.active {
+  background: var(--arcana-blue) !important;
+  color: #fff !important;
+  border-color: var(--arcana-blue) !important;
+}
+
+:root[data-theme="dark"] .pericias th {
+  background: #252343 !important;
+  color: #e5e6ff !important;
+}
+
+:root[data-theme="dark"] .pericias td {
+  background: #292747 !important;
+  color: #d7d9f5 !important;
+}
+
+:root[data-theme="dark"] .pericias tr:nth-child(even) td {
+  background: #302e50 !important;
+}
+
+/* Gerenciador de campanha: módulos, formulários e conteúdo criado por JS. */
+:root[data-theme="dark"] .campaign-header,
+:root[data-theme="dark"] .content-area,
+:root[data-theme="dark"] .page-content.active,
+:root[data-theme="dark"] .combat-card,
+:root[data-theme="dark"] .combat-creature-form,
+:root[data-theme="dark"] .demo-module-form,
+:root[data-theme="dark"] .combat-add-form,
+:root[data-theme="dark"] .campaign-nav {
+  background-color: var(--arcana-surface) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border) !important;
+}
+
+:root[data-theme="dark"] .campaign-header p,
+:root[data-theme="dark"] .content-area p,
+:root[data-theme="dark"] .page-content p,
+:root[data-theme="dark"] .page-content li,
+:root[data-theme="dark"] .combat-card p,
+:root[data-theme="dark"] .demo-module-form label,
+:root[data-theme="dark"] .combat-creature-form label,
+:root[data-theme="dark"] .combat-add-form label {
+  color: var(--arcana-text-secondary) !important;
+}
+
+:root[data-theme="dark"] .campaign-description-display,
+:root[data-theme="dark"] .campaign-name-display {
+  color: var(--arcana-text) !important;
+}
+
+:root[data-theme="dark"] .secondary-button,
+:root[data-theme="dark"] .combat-card .secondary-button {
+  background: var(--arcana-surface-subtle) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border-strong) !important;
+}
+
+:root[data-theme="dark"] .danger-button {
+  background: #8f3d68 !important;
+  color: #fff !important;
+  border-color: #a34d7a !important;
+}
+
+/* Todos os campos, inclusive os que são inseridos dinamicamente. */
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] .demo-module-form input,
+:root[data-theme="dark"] .demo-module-form textarea,
+:root[data-theme="dark"] .combat-creature-form input,
+:root[data-theme="dark"] .combat-creature-form textarea,
+:root[data-theme="dark"] .combat-creature-form select,
+:root[data-theme="dark"] .combat-add-form select {
+  background: var(--arcana-surface-raised) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border-strong) !important;
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: var(--arcana-text-muted) !important;
+}
+
+/* Menus, links de navegação e perfil. */
+:root[data-theme="dark"] nav[aria-label="Navegação principal"] a,
+:root[data-theme="dark"] nav[aria-label="Navegação principal"] .nav-unavailable {
+  color: var(--arcana-text-secondary) !important;
+}
+
+:root[data-theme="dark"] nav[aria-label="Navegação principal"] a[aria-current="page"] {
+  color: var(--arcana-blue) !important;
+}
+
+:root[data-theme="dark"] .perfil-nome {
+  color: var(--arcana-text) !important;
+}
+
+/* Modais e confirmações. */
+:root[data-theme="dark"] .arcana-modal,
+:root[data-theme="dark"] .arcana-modal-panel,
+:root[data-theme="dark"] .modal,
+:root[data-theme="dark"] .modal-dialog,
+:root[data-theme="dark"] .custom-modal {
+  background: var(--arcana-surface) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border) !important;
+}
+
+:root[data-theme="dark"] .arcana-modal-panel h2,
+:root[data-theme="dark"] .arcana-modal-message {
+  color: var(--arcana-text) !important;
+}
+
+:root[data-theme="dark"] .arcana-modal-cancel {
+  background: var(--arcana-surface-subtle) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border-strong) !important;
+}
+
+:root[data-theme="dark"] .arcana-modal-input {
+  background: var(--arcana-surface-raised) !important;
+  color: var(--arcana-text) !important;
+  border-color: var(--arcana-border-strong) !important;
+}
