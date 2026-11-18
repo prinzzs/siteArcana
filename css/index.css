@@ -184,3 +184,13 @@
     height: 280px;
   }
 }
+
+/* O CTA principal da home não deve ter sublinhado em nenhum estado. */
+.container-cima .container-button-cadastro a.button,
+.container-cima .container-button-cadastro a.button:link,
+.container-cima .container-button-cadastro a.button:visited,
+.container-cima .container-button-cadastro a.button:hover,
+.container-cima .container-button-cadastro a.button:focus,
+.container-cima .container-button-cadastro a.button:active {
+  text-decoration: none !important;
+}
